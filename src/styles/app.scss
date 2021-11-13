@@ -1,0 +1,20 @@
+@import '~normalize.css';
+
+/*Utils*/
+@import 'base/fonts';
+@import 'base/colors';
+@import 'base/mixins';
+@import 'base/globals';
+
+/*Layouts*/
+@import 'layouts/Onboarding/onboarding';
+@import 'layouts/Login/login';
+@import 'layouts/Home/home';
+@import 'layouts/Navbar/navbar';
+@import 'layouts/Pets/pets';
+@import 'layouts/Pets/Details/pets-details';
+@import 'layouts/Profile/profile';
+@import 'layouts/Adoption/adoption';
+@import 'layouts/Asociation/asociation';
+@import 'layouts/Asociation/Create/asociation-create';
+@import 'layouts/Asociation/Details/asociation-details';
