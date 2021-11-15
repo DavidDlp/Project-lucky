@@ -1,9 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import { registerUser } from "../../api/Login/apiRegister";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,formState:{ errors } } = useForm();
+  const navigate = useNavigate()
+
 
   const submit = (data) => {
     addUser(data);
@@ -12,10 +15,9 @@ const Register = () => {
   const addUser = async (user) => {
     try {
       const newUser = await registerUser(user);
-      return newUser;
-      /* if(newUser){
-                navigate('/...')
-            } */
+      if (newUser) {
+        navigate("/user/login");
+      }
     } catch (error) {
       return console.log(error);
     }
@@ -25,39 +27,23 @@ const Register = () => {
     <div>
       <h2>REGISTER</h2>
       <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name"><br/>Name:</label>
         <input type="text" name="name" {...register("name")} />
 
-        <label htmlFor="surname">Surname:</label>
+        <label htmlFor="surname"><br/>Surname:</label>
         <input type="text" name="surname" {...register("surname")} />
 
-        <label htmlFor="DNI">DNI:</label>
-        <input type="text" name="DNI" {...register("DNI")} />
-
-        <label htmlFor="telephone">Telephone:</label>
+        <label htmlFor="telephone"><br/>Phone:</label>
         <input type="text" name="telephone" {...register("telephone")} />
 
-        <label htmlFor="street">Street:</label>
-        <input type="text" name="street" {...register("street")} />
+        <label htmlFor="email"><br/>*Email:</label>
+        <input type="text" name="email" {...register("email",{required:{value:true, message:"please enter a email!!"}})} />
+        {errors.email && <span>{errors.email.message}</span>}
 
-        <label htmlFor="city">City:</label>
-        <input type="text" name="city" {...register("city")} />
-
-        <label htmlFor="pc">Postal code:</label>
-        <input type="text" name="pc" {...register("pc")} />
-
-        <label htmlFor="imgAvatar">Avatar:</label>
-        <input type="text" name="imgAvatar" {...register("imgAvatar")} />
-
-        <label htmlFor="email">email:</label>
-        <input type="text" name="email" {...register("email")} />
-
-        <label htmlFor="password">password:</label>
-        <input type="text" name="password" {...register("password")} />
-
-        <label htmlFor="role">role:</label>
-        <input type="text" name="role" {...register("role")} />
-
+        <label htmlFor="password"><br/>*Password:</label>
+        <input type="text" name="password" {...register("password",{required:{value:true, message:"please enter a password!!"}})} />
+        {errors.password && <span>{errors.password.message}</span>}
+        <br/>
         <input type="submit" value="submit" />
       </form>
     </div>
