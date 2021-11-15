@@ -1,0 +1,54 @@
+.onboarding{
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+
+    .swiper-container{
+        height: 100vh;
+    }
+
+    .swiper-slide{
+        text-align: center;
+        margin-top: 10rem;
+    
+        h5{
+            font-size: 25px;
+            color: $blueDark;
+            font-weight: 500;
+            margin-block-start: 2em;
+            margin-block-end: 1em;
+        }
+    
+        p{
+            font-size: 16px;
+            color: $dark;
+        }
+    }
+
+    .swiper-pagination{
+
+        margin-bottom: 1.5rem;
+    
+        .swiper-pagination-bullet{
+            background-color: #FFF;
+            border: 1px solid $redDark;
+            margin: 0 7px!important;
+            width: 15px;
+            height: 15px;
+        }
+    
+        .swiper-pagination-bullet-active{
+            background-color: $redLight;
+            border: 1px solid $redLight;
+        }
+    }
+}
+
+
+
+.close-button{
+    position: absolute;
+    top: 2.3rem;
+    right: 2.3rem;
+    color: #0E363D;
+}
