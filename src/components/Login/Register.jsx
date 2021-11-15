@@ -9,7 +9,15 @@ const Register = () => {
 
 
   const submit = (data) => {
-    addUser(data);
+    /* console.table(data) */
+    const formData = new FormData()
+    formData.append("name",data.name)
+    formData.append("surname",data.surname)
+    formData.append("telephone",data.telephone)
+    formData.append("email",data.email)
+    formData.append("password",data.password)
+    formData.append("imgAvatar",data.imgAvatar[0])
+    addUser(formData);
   };
 
   const addUser = async (user) => {
@@ -39,6 +47,9 @@ const Register = () => {
         <label htmlFor="email"><br/>*Email:</label>
         <input type="text" name="email" {...register("email",{required:{value:true, message:"please enter a email!!"}})} />
         {errors.email && <span>{errors.email.message}</span>}
+
+        <label htmlFor="imgAvatar"><br/>*Avatar:</label>
+        <input type="file" name="imgAvatar" {...register("imgAvatar")} />
 
         <label htmlFor="password"><br/>*Password:</label>
         <input type="text" name="password" {...register("password",{required:{value:true, message:"please enter a password!!"}})} />
