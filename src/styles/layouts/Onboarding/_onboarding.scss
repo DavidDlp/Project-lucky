@@ -24,25 +24,27 @@
             color: $dark;
         }
     }
+
+    .swiper-pagination{
+
+        margin-bottom: 1.5rem;
+    
+        .swiper-pagination-bullet{
+            background-color: #FFF;
+            border: 1px solid $redDark;
+            margin: 0 7px!important;
+            width: 15px;
+            height: 15px;
+        }
+    
+        .swiper-pagination-bullet-active{
+            background-color: $redLight;
+            border: 1px solid $redLight;
+        }
+    }
 }
 
-.swiper-pagination{
 
-    margin-bottom: 1.5rem;
-
-    .swiper-pagination-bullet{
-        background-color: #FFF;
-        border: 1px solid $redDark;
-        margin: 0 7px!important;
-        width: 15px;
-        height: 15px;
-    }
-
-    .swiper-pagination-bullet-active{
-        background-color: $redLight;
-        border: 1px solid $redLight;
-    }
-}
 
 .close-button{
     position: absolute;

@@ -1,12 +1,11 @@
 import './styles/app.scss';
 import React from 'react';
-// import Onboarding  from './components/Onboarding/Onboarding';
-import Onboarding  from './components/Onboarding/Onboarding';
+import Home  from './components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <Onboarding />
+      <Home />
     </div>
   );
 }
