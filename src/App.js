@@ -1,5 +1,6 @@
 import './styles/app.scss';
 import React from 'react';
+// import Onboarding  from './components/Onboarding/Onboarding';
 import Onboarding  from './components/Onboarding/Onboarding';
 
 function App() {

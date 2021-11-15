@@ -1,31 +1,29 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, { Pagination } from 'swiper';
+
 
 //CSS
 import 'swiper/swiper.scss';
-
 import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
-import 'swiper/components/a11y/a11y.scss';
+import './../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
 //Images
 import onboarding1 from './../../assets/img/onboarding1.png';
 import onboarding2 from './../../assets/img/onboarding2.png';
 import onboarding3 from './../../assets/img/onboarding3.png';
 
-
+SwiperCore.use([Pagination]);
 
 
 const Onboarding = () => {
-
+    
     return (
         <div className="onboarding">
             <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
                 slidesPerView={1}
-                pagination={{"dynamicBullets": true}}
+                pagination={true}
+                spaceBetween={50}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
@@ -42,8 +40,11 @@ const Onboarding = () => {
                     <img src={onboarding3} alt="onboarding3" />
                     <h5>Si eres una asociación sube a tus peludos para darles más difusión</h5>
                 </SwiperSlide>
-            </Swiper>
-            
+            </Swiper> 
+
+            <span className="close-button">
+                <i class="fas fa-times"></i>
+            </span>
         </div>
     )
 }
