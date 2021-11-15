@@ -1,0 +1,21 @@
+.navbar{
+    height: 60px;
+    box-shadow: -2px -8px 9px -7px rgba(0,0,0,0.30);
+    -webkit-box-shadow: -2px -8px 9px -7px rgba(0,0,0,0.30);
+    -moz-box-shadow: -2px -8px 9px -7px rgba(0,0,0,0.30);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    background-color: $light;
+    z-index: 1;
+
+    img{
+        width: 24px;
+        height: 24px;
+    }
+}
