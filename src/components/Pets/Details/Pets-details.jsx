@@ -15,10 +15,6 @@ const Navbar = () => {
     
     const [showData, setShowData] = useState(true);
 
-    if (showData === true){
-        
-    }
-
     return (
         <div className="detailPet">
             <div className="detailPet__sliderImg">
