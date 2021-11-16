@@ -11,9 +11,10 @@ const Login = () => {
 
   const signIn = async (user) => {
     try {
-      const tokenVar = await loginUser(user);
-      localStorage.setItem("token", tokenVar);
-      if(!tokenVar){
+      const res = await loginUser(user);
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("user", JSON.stringify(res.userInBd));
+      if(!res.token){
         alert("WRONG CREDENTIALS")
       }
     } catch (error) {
