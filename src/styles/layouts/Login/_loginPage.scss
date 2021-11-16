@@ -1,0 +1,53 @@
+.cont-Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    .cont-logo{
+        margin:117px 114px 66px 97px;
+    }
+
+    .cont-header{
+        font-size: 20px;
+        font-weight: 500;
+        color:rgb(1,116,142);
+
+        text-align: center;
+        margin:0 44px 39px 26px;
+    }
+
+    .cont-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+        .input{
+            border: 0px;
+            border-bottom: 1px solid rgb(1,116,142);
+            width: 316px;
+            margin-bottom: 22px;
+            outline-style: none;
+        }
+
+        .forgot-pass{
+            width: 316px;
+            
+
+        }
+
+        .cont-inputs-buttons{
+
+            .in-session{
+
+            }
+            .create-acc{
+
+            }
+        }
+    }
+}
+
+::-ms-reveal {
+    background-image:url("../../../assets/img/ojo.png");
+}
