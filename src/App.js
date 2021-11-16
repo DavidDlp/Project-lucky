@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Pets from './components/Pets/Pets';
+import Pets from "./components/Pets/Pets";
 import Login from "./components/Login/Login";
 import Logout from "./components/Login/Logout";
 import Register from "./components/Login/Register";
-
+import Association from "./components/Association/Association";
+import AssociationCreate from "./components/Association/Create/AssociationCreate";
+import Profile from "./components/Profile/Profile";
 import "./styles/app.scss";
 import PreLogin from "./components/Login/PreLogin";
 import Onboarding from "./components/Onboarding/Onboarding";
@@ -22,7 +24,12 @@ function App() {
           <Link to="/user">|PreLogin|</Link>
           <Link to="/pets">|Pets|</Link>
           <Link to="/home">|Home|</Link>
+<<<<<<< HEAD
           <Link to="/">|Onboarding|</Link> */}
+=======
+          <Link to="/">|Onboarding|</Link>
+          <Link to="/associations">Associations</Link>
+>>>>>>> ed0a1a1f17b051887aa0485fb35dcfb8b4cc1f39
 
           <Routes>
             <Route path="/" element={<Onboarding/>}/>
@@ -32,11 +39,14 @@ function App() {
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
+            <Route path="/association" element={<Association />} />
+            <Route path="/associations" element={<AssociationCreate />} />
+            <Route path="/" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </div>
     </>
-  )
+  );
 }
 
 export default App;
