@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React, { useContext } from "react";
-import { DataContext } from "../../App";
-
-const Associations = () => {
-  const { data1 } = useContext(DataContext);
-
-  return (
-    <div>
-        <h1>Asociaciones</h1>
-    </div> 
-  ); 
-}
-    
-
-=======
 import React, { useEffect, useState } from "react";
 import { getAssociations, deleteAssociations } from "../../api/apiAssociation";
 
@@ -64,6 +48,5 @@ const Association = () => {
     </>
   );
 };
->>>>>>> ana
 
 export default Association;
