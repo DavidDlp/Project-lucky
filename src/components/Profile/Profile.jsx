@@ -1,6 +1,4 @@
 import React from "react";
-
-
 import profilePhoto from "../../assets/icons/user.svg";
 import profileIcono from "../../assets/icons/chica.svg";
 import localizacion from "../../assets/icons/localization.svg";
@@ -47,6 +45,7 @@ export default function Profile() {
           <h2>Estado de Adopcion</h2>
                       <img className='adelante-arrow' src={adelante} alt="icono" />       {" "}
         </div>
+        
       </div>
              {" "}
     </>

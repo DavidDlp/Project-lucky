@@ -13,6 +13,8 @@ import "./styles/app.scss";
 import PreLogin from "./components/Login/PreLogin";
 import Onboarding from "./components/Onboarding/Onboarding";
 
+
+
 function App() {
   return (
     <>
@@ -24,8 +26,12 @@ function App() {
           <Link to="/user">|PreLogin|</Link>
           <Link to="/pets">|Pets|</Link>
           <Link to="/home">|Home|</Link>
-          <Link to="/">|Onboarding|</Link> 
-          <Link to="/associations">Associations</Link> 
+          <Link to="/">|Onboarding|</Link>
+          <Link to="/associations">Associations</Link>
+          <Link to="/associationscreate">AssociationCreate</Link>
+          <Link to="/associationscreate">AssociationCreate</Link>
+          
+       
 
           <Routes>
             <Route path="/" element={<Onboarding/>}/>
@@ -36,9 +42,11 @@ function App() {
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
-            <Route path="/association" element={<Association />} />
-            <Route path="/associations" element={<AssociationCreate />} />
+            <Route path="/associations" element={<Association />} />
+            <Route path="/associationscreate" element={<AssociationCreate />} />
             <Route path="/profile" element={<Profile />} />
+    
+         
           </Routes>
         </BrowserRouter>
       </div>
