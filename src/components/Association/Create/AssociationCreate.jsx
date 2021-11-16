@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { DataContext } from '../../App';
+import React, { useState } from 'react';
+
+import { postAssociations } from '../../../api/apiAssociation';
+import {useNavigate} from 'react-router-dom'
 
 const INIT = {
     name: '',
@@ -9,23 +11,32 @@ const INIT = {
     city:''
 }
 
-const CreateAssociation = () => {
+const AssociationCreate = () => {
 
-    const { data1, setData } = useContext(DataContext)
    
     const [association, setAssociation] = useState(INIT)
+    const navigate = useNavigate()
 
     const handleInput = (e) => {
         const { name, value } = e.target
         setAssociation({ ...association, [name]: value })
     }
 
-    const submitForm = (e) => {
-        e.preventDefault();
-        const dataCopy = { ...data1 }
-        dataCopy.associationes.push(association)
-        setData(dataCopy)
-    }
+     const submitForm =  (e) => {
+        e.preventDefault();
+        addAssociation()
+    }
+    const addAssociation = async () => {
+      try {
+          const newAssociation = await postAssociations(association)
+          if (newAssociation) {
+             // alert('Personaje Creado')
+             navigate('/associations')
+          }
+      } catch (error) {
+          console.error(error)
+      }
+  }
 
     return (
         <>
@@ -70,4 +81,4 @@ const CreateAssociation = () => {
     )
 }
 
-export default CreateAssociation
+export default AssociationCreate
