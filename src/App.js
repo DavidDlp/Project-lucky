@@ -11,6 +11,8 @@ import Profile from "./components/Profile/Profile";
 import "./styles/app.scss";
 import PreLogin from "./components/Login/PreLogin";
 import Onboarding from "./components/Onboarding/Onboarding";
+import Maps_map from "./components/Map/Maps_map";
+
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
           <Link to="/home">|Home|</Link>
           <Link to="/">|Onboarding|</Link>
           <Link to="/associations">Associations</Link>
+          <Link to="/associationscreate">AssociationCreate</Link>
+          <Link to="/associationscreate">AssociationCreate</Link>
+          <Link to="/map">Maps_map</Link>
+       
 
           <Routes>
             <Route path="/" element={<Onboarding/>}/>
@@ -35,9 +41,11 @@ function App() {
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
-            <Route path="/association" element={<Association />} />
-            <Route path="/associations" element={<AssociationCreate />} />
-            <Route path="/" element={<Profile />} />
+            <Route path="/associations" element={<Association />} />
+            <Route path="/associationscreate" element={<AssociationCreate />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route exact path = '/mapa' component={Maps_map}/>
+         
           </Routes>
         </BrowserRouter>
       </div>

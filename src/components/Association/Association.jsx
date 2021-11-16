@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React, { useContext } from "react";
-import { DataContext } from "../../App";
-
-const Associations = () => {
-  const { data1 } = useContext(DataContext);
-
-  return (
-    <div>
-        <h1>Asociaciones</h1>
-    </div> 
-  ); 
-}
-    
-
-=======
 import React, { useEffect, useState } from "react";
 import { getAssociations, deleteAssociations } from "../../api/apiAssociation";
 
@@ -32,6 +16,7 @@ const Association = () => {
     try {
       await deleteAssociations(id);
       const newElements = associations.filter((item) => item._id !== id);
+      console.log("esto es el ", newElements)
       setAssociatios(newElements);
     } catch (error) {}
   };
@@ -42,15 +27,14 @@ const Association = () => {
 
   return (
     <>
-            <h1>Asociaciones</h1>     
-      <div>
-             
+           <h1>Asociaciones</h1>           
+      <div className="content">
         {associations.map((item) => {
           return (
             <div key={JSON.stringify(item)}>
-              <p>Nombre: {item.name}</p>            
-              <p>Email: {item.email}</p>            
-              <p>Telefono: {item.phone}</p>            
+              <p>Nombre: {item.name}</p>           
+              <p>Email: {item.email}</p>   
+              <p>Telefono: {item.phone}</p>           
               <p>Dirección: {item.address}</p>             
               <p>Ciudad: {item.city}</p>
               <button onClick={() => delAssociation(item._id)}>Borrar</button> 
@@ -58,12 +42,11 @@ const Association = () => {
             </div>
           );
         })}
-          
+         
       </div>
          {" "}
     </>
   );
 };
->>>>>>> ana
 
 export default Association;
