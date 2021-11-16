@@ -1,7 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Pagination } from 'swiper';
+import { useParams } from 'react-router-dom';
+import { getPetsById } from "./../../../api/servicesPets/apiPets";
 
 import detailpetTest from './../../../assets/img/detailpetTest.png';
 import favIcon from './../../../assets/img/favIcon.png';
@@ -14,13 +16,28 @@ SwiperCore.use([EffectFade, Pagination]);
 const PetsDetails = () => {
     
     const [showData, setShowData] = useState(true);
+    const [pet, setPet] = useState({});
+
+    const { id }  = useParams();    
+    
+    const getPets = async () => {
+        const petbyid = await getPetsById(id);
+        setPet(petbyid.data);
+        console.log(petbyid);
+    }
+
+    useEffect(() => {
+        getPets();
+    }, [])
+
+
 
     return (
         <div className="detailPet">
             <div className="detailPet__sliderImg">
             <Swiper effect={'fade'} pagination={true} className="mySwiper">
                 <SwiperSlide>
-                    <img src={detailpetTest} alt="detailpetTest" />
+                    <img src={pet.imgPets} alt="detailpetTest" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={detailpetTest} alt="detailpetTest" />
