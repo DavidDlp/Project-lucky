@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Pets from "./components/Pets/Pets";
+import PetsDetails from "./components/Pets/Details/Pets-details";
 import Login from "./components/Login/Login";
 import Logout from "./components/Login/Logout";
 import Register from "./components/Login/Register";
@@ -17,7 +18,6 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-        
           <Link to="/user/register">|Register|</Link>
           <Link to="/user/login">|Login|</Link>
           <Link to="/user/logout">|Logout|</Link>
@@ -31,13 +31,14 @@ function App() {
             <Route path="/" element={<Onboarding/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/pets" element={<Pets/>}/>
+            <Route path="/pets/details" element={<PetsDetails/>}/>
             <Route path="/user" element={<PreLogin/>}/>
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
             <Route path="/association" element={<Association />} />
             <Route path="/associations" element={<AssociationCreate />} />
-            <Route path="/" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </div>
