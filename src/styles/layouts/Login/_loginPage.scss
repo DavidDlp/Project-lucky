@@ -14,7 +14,10 @@
         color:rgb(1,116,142);
 
         text-align: center;
-        margin:0 44px 39px 26px;
+        margin:0 44px 49px 26px;
+        p{
+            margin: 0%;
+        }
     }
 
     .cont-form{
@@ -30,24 +33,68 @@
             outline-style: none;
         }
 
-        .forgot-pass{
-            width: 316px;
-            
+        .pass-wrapper{
+            position: relative;
+            display: flex;
+            margin-bottom: 0px;
 
+            .input{
+                margin-bottom: 8px;
+
+            }
+            
+            i {
+                background-image: url("../../../assets/img/ojo.png");
+                background-position: center;
+                
+                color:rgba(0, 0, 0, 0);
+                position: absolute;
+                right: 0%;
+                top:0%;
+            }
+        }
+        
+        .forgot-pass{
+            margin-bottom: 73px;
+            p{
+                width: 316px;
+                text-align: end;
+                font-size: 12px;
+                margin:0px;
+                padding:0px;
+            }
+            
+            
         }
 
         .cont-inputs-buttons{
+            display: flex;
+            flex-direction: column;
 
             .in-session{
-
+                background-color: rgb(1, 116, 142);
+                border: 1px solid rgb(1, 116, 142);
+                border-radius: 5px;
+                width: 196px;
+                height: 40px;
+                margin: 8px;
+                padding: 11px;
+                color: white;
             }
             .create-acc{
-
+                border: 1px solid rgb(1, 116, 142);
+                border-radius: 5px;
+                width: 196px;
+                height: 40px;
+                margin: 8px;
+                padding: 11px;
+                color: rgb(1, 116, 142);
             }
         }
     }
 }
 
 ::-ms-reveal {
-    background-image:url("../../../assets/img/ojo.png");
+    display:none;
+    /* background-image:url("../../../assets/img/ojo.png"); */
 }
