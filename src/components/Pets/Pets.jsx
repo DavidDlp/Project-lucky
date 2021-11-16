@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import { getAllPets } from "../../api/servicesPets/apiPets";
 
 // Import Swiper React components
@@ -61,7 +62,7 @@ export default function Pets (){
                 <span>Estado de adopcion</span>
                 <img src={arrow} alt="flecha"/>
             </div>
-            <div className="container-list">
+            <div className="container-filter">
                 <h3>Animales en adopcion</h3>
                 <img src={filtros} alt="filtrado" />
             </div>
@@ -69,7 +70,10 @@ export default function Pets (){
                 {pets.map(item => {
                         return (
                             <div key={JSON.stringify(item)}>
-                                <img src={item.imgPets} alt="pets" />
+                                <Link to ={{ pathname: "/pets/details",
+                                data : item }}>
+                                    <img src={item.imgPets} alt="pets"/>
+                                </Link>
                                 <div>
                                     <h3>{item.name}</h3>
                                     <span>{item.city}</span>
@@ -78,6 +82,7 @@ export default function Pets (){
                         )
                     })}
             </div>
+                                
             
 
         </div>
