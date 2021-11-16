@@ -35,9 +35,7 @@ export default function Pets (){
 
         }catch(error){
             return console.error(error)
-        }
-
-        
+        }   
     };
     
     useEffect(() =>{
@@ -68,7 +66,17 @@ export default function Pets (){
                 <img src={filtros} alt="filtrado" />
             </div>
             <div>
-                <p>Listado Animales</p>
+                {pets.map(item => {
+                        return (
+                            <div key={JSON.stringify(item)}>
+                                <img src={item.imgPets} alt="pets" />
+                                <div>
+                                    <h3>{item.name}</h3>
+                                    <span>{item.city}</span>
+                                </div>
+                            </div>
+                        )
+                    })}
             </div>
             
 
