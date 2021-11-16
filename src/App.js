@@ -18,8 +18,10 @@ function App() {
           <Link to="/user/logout">Logout</Link>
           <Link to="/home">Home</Link>
           <Link to="/pets">Pets</Link>
+          
 
           <Routes>
+            
             <Route path="/pets" element={<Pets/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/user/register" element={<Register />} />
