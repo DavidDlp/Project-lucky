@@ -57,7 +57,12 @@ const Home = () => {
                             </div>
                         </div>
                     </SwiperSlide>
-            </Swiper> 
+                </Swiper> 
+            </div>
+            <div className="separation"></div>
+            <h4>Novedades</h4>
+            <div className="info-card">
+                <img src="" alt="info 1" />
             </div>
         </div>
     )
