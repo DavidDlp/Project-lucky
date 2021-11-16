@@ -11,7 +11,7 @@ import PetHealth from './Health';
 
 SwiperCore.use([EffectFade, Pagination]);
 
-const Navbar = () => {
+const PetsDetails = () => {
     
     const [showData, setShowData] = useState(true);
 
@@ -59,4 +59,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default PetsDetails;
