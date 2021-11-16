@@ -47,8 +47,8 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="detailPet__Navbar">
-                <a onClick={() => setShowData(true)}>Datos</a>
-                <a onClick={() => setShowData(false)}>Salud</a>
+                <a onClick={() => setShowData(true)} className={showData ? 'active' : ''}>Datos</a>
+                <a onClick={() => setShowData(false)} className={!showData ? 'active' : ''}>Salud</a>
             </div>
             {showData ? (
                 <PetData />

@@ -89,10 +89,7 @@
         flex-direction: row;
         justify-content: space-around;
         margin-top: 1.5rem;
-
-        &:hover{
-        }
-
+        
         a{
             font-size: 16px;
             font-family: $fontMain;
@@ -102,12 +99,12 @@
             width: 100%;
             text-align: center;
             padding-bottom: 0.5rem;
-
-            &:hover{
-                color: $ocean;
-                font-weight: 600;
-                border-bottom: 3px solid $redLight;
-            }
+        }
+        
+        .active{
+            color: $ocean;
+            font-weight: 600;
+            border-bottom: 3px solid $redLight;
         }
     }
 
