@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { getAllPets } from "../../api/servicesPets/apiPets";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,11 +17,33 @@ import SwiperCore, {
 import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
 import add from './../../assets/img/mS.png';
+import filtros from './../../assets/img/filtros.png';
+
   
 // install Swiper modules
-  SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination]);
 
 export default function Pets (){
+
+    const [pets, setPets] = useState([])
+
+    const getPetsApi = async () =>{
+        try{
+            const result = await getAllPets();
+            setPets(result.data)
+            console.log(result.data)
+
+        }catch(error){
+            return console.error(error)
+        }
+
+        
+    };
+    
+    useEffect(() =>{
+            getPetsApi();
+        }, [])
+
     return(
         <div className="Pets-main" >
             <div>
@@ -38,6 +62,13 @@ export default function Pets (){
             <div className="container-btn">
                 <span>Estado de adopcion</span>
                 <img src={arrow} alt="flecha"/>
+            </div>
+            <div className="container-list">
+                <h3>Animales en adopcion</h3>
+                <img src={filtros} alt="filtrado" />
+            </div>
+            <div>
+                <p>Listado Animales</p>
             </div>
             
 
