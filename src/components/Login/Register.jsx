@@ -18,15 +18,15 @@ const Register = () => {
   };
 
   const submit = (data) => {
-    /* console.table(data)
+    //console.table(data)
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("surname", data.surname);
     formData.append("telephone", data.telephone);
     formData.append("email", data.email);
     formData.append("password", data.password);
-    formData.append("imgAvatar", data.imgAvatar[0]); */
-    addUser(data);
+    formData.append("imgAvatar", data.imgAvatar[0]);
+    addUser(formData);
   };
 
   const addUser = async (user) => {
@@ -136,7 +136,7 @@ const Register = () => {
           <i onClick={togglePasswordVisiblity}>{eye}</i>
         </div>
 
-        {/* <div className="input-box">
+        <div className="input-box">
           <label className="custom-file-upload" htmlFor="imgAvatar">
             <input
               id="imgAvatar"
@@ -146,7 +146,7 @@ const Register = () => {
             />
             <p>Tu Avatar!!!</p>
           </label>
-        </div> */}
+        </div>
           <button className="button" type="submit" value="submit">
             <p>Listo!</p>
             </button>

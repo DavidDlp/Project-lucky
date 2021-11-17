@@ -7,7 +7,7 @@ export default function Logout() {
 
   const logout = () => {
     localStorage.setItem("token", "");
-    /* localStorage.setItem("user", ""); */
+    localStorage.setItem("user", "");
     setLoggedOut(true);
     navigate('/user/login')
   };
