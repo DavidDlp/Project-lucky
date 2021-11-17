@@ -5,8 +5,9 @@ import navbarHome from './../../assets/img/navbarHome.png';
 import navbarPets from './../../assets/img/navbarPets.png';
 import navbarMenu from './../../assets/img/navbarMenu.png';
 
+
 const Navbar = () => {
-    
+
     return (
         <div className="navbar">
             <Link to="/home">

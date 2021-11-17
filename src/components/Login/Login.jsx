@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { loginUser } from "../../api/Login/apiLogin";
 import logo from "../../assets/img/logo.png";
 
@@ -24,10 +25,26 @@ const Login = () => {
       const res = await loginUser(user);
       localStorage.setItem("token",res.token);
       localStorage.setItem("user", JSON.stringify(res.userInBd));
-      const userInLocal = localStorage.getItem("user")
+      const userInLocal = localStorage.getItem("user");
       if(userInLocal){
-        navigate("/home")
+        return(
+          <Link
+            to={{
+              pathname: "/home",
+              state: userInLocal
+            }}
+          >
+            {navigate("/home")}
+          </Link>
+        )
+      }else{
+        return(
+          <>
+          </>
+        )
       }
+
+      // eslint-disable-next-line no-unreachable
       console.log("user ->> ",userInLocal)
     } catch (error) {
       return console.log(error);
@@ -75,7 +92,7 @@ const Login = () => {
             value="Crear cuenta"
             onClick={() => navigate("/user/register")}
           />
-          <input className="in-session" type="submit" value="Iniciar session" />
+          <input className="in-session" type="submit" value="Iniciar sesión" />
         </div>
       </form>
     </div>

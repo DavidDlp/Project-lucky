@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCube, Pagination } from 'swiper';
-import Navbar from './../Navbar/Navbar';
 
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
@@ -10,23 +9,32 @@ import 'swiper/components/effect-cube/effect-cube.scss';
 import dogIcon from './../../assets/img/dogIcon.png';
 import info1 from './../../assets/img/info1.png';
 import info2 from './../../assets/img/info2.png';
+import Navbar from '../Navbar/Navbar';
 
 
 SwiperCore.use([EffectCube, Pagination]);
 
 
 const Home = () => {
+      //Para consumir los datos hay que utilizar useEffect con JSON.parse
+    const [userInLocal, setUserInLocal] = useState({});
     
+    useEffect(() => {
+        setUserInLocal(JSON.parse(localStorage.getItem("user")));
+    },[])
+
+    // console.log(userInLocal);
     return (
-        
+        <>
+        <Navbar />
         <div className="home">
-            <Navbar />
-            <h2>¡Hola Celia!</h2>
+            <h2>¡Hola {userInLocal.name}!</h2>
             <div className="slider">
                 <Swiper
                     slidesPerView={1}
                     pagination={true}
                     spaceBetween={30}
+                    autoHeight={true}
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => console.log(swiper)}
                     effect={'cube'}
@@ -86,6 +94,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
