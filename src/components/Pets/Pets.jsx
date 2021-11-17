@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import { getAllPets } from "../../api/servicesPets/apiPets";
 
 // Import Swiper React components
@@ -18,8 +19,9 @@ import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
 import add from './../../assets/img/mS.png';
 import filtros from './../../assets/img/filtros.png';
+import Navbar from "../Navbar/Navbar";
 
-  
+
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
@@ -31,13 +33,11 @@ export default function Pets (){
         try{
             const result = await getAllPets();
             setPets(result.data)
-            console.log(result.data)
+            // console.log(result.data)
 
         }catch(error){
             return console.error(error)
-        }
-
-        
+        }   
     };
     
     useEffect(() =>{
@@ -45,6 +45,8 @@ export default function Pets (){
         }, [])
 
     return(
+        <>
+        <Navbar />
         <div className="Pets-main" >
             <div>
                 <input className="input-btn" type="text" placeholder="Buscar" onChange={(e) =>{ }}/>
@@ -63,15 +65,27 @@ export default function Pets (){
                 <span>Estado de adopcion</span>
                 <img src={arrow} alt="flecha"/>
             </div>
-            <div className="container-list">
+            <div className="container-filter">
                 <h3>Animales en adopcion</h3>
                 <img src={filtros} alt="filtrado" />
             </div>
             <div>
-                <p>Listado Animales</p>
+                {pets.map(item => {
+                        return (
+                            <div key={JSON.stringify(item)}>
+                                <Link to ={{ pathname: "/pets/details/"+item._id}}>
+                                    <img src={item.imgPets} alt="pets"/>
+                                </Link>
+                                <div>
+                                    <h3>{item.name}</h3>
+                                    <span>{item.city}</span>
+                                </div>
+                            </div>
+                        )
+                    })}
             </div>
-            
-
-        </div>
+        </div>        
+        
+        </>
     )
 }

@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { loginUser } from "../../api/Login/apiLogin";
 import logo from "../../assets/img/logo.png";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye}/>;
-
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
-  };
+  // const [passwordShown, setPasswordShown] = useState(false);
 
   const {
     register,
@@ -63,13 +56,13 @@ const Login = () => {
            <input
           className="input"
           placeholder="password"
-          type={passwordShown ? "text" : "password"}
+          type="password"
           name="password"
           {...register("password", {
             required: true,
           })}
         />
-        <i onClick={togglePasswordVisiblity}>{eye}</i>
+        
         </div>
        
         <div className="forgot-pass">

@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../api/Login/apiRegister";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye } from "@fortawesome/free-solid-svg-icons";
 import logoReg from "../../assets/img/logoRegister.png";
 
-const eye = <FontAwesomeIcon icon={faEye} />;
+// const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
-  };
 
   const submit = (data) => {
     //console.table(data)
@@ -127,13 +123,13 @@ const Register = () => {
         <div className="pass-wrapper input-box">
           <input
             placeholder="Y aqui la contraseña!"
-            type={passwordShown ? "text" : "password"}
+            type={"password"}
             name="password"
             {...register("password", {
               required: true,
             })}
           />
-          <i onClick={togglePasswordVisiblity}>{eye}</i>
+          {/* <i onClick={togglePasswordVisiblity}>{eye}</i> */}
         </div>
 
         <div className="input-box">
