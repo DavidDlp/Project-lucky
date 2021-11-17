@@ -37,6 +37,10 @@
 .pets{
     margin: $marginMain;
     margin-bottom: $marginBottomNavbar;
+
+    a{
+        text-decoration: none;
+    }
     
     &__search{
         position: relative;
