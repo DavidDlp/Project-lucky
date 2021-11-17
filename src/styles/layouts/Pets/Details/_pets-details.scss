@@ -1,5 +1,4 @@
-.detailPet{
-    
+.detailPet{    
     .detailPet__sliderImg{
         .swiper-container{    
             .swiper-pagination{        
@@ -22,8 +21,9 @@
 
         .swiper-slide{
             img{
-                width: 100%;
+                width: 102vw;
                 height: auto;
+                margin-left: -0.4rem;
             }
         }
     }
@@ -209,5 +209,13 @@
                 border-radius: 4px;
             }
         }
+    }
+    .back--button{
+        font-size: 2rem;
+        color: $redDark;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        z-index: 2;
     }
 }
