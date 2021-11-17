@@ -7,6 +7,7 @@ const headers = {
     "Access-Control-Allow-Origin": "*"
 };
 
+//GET
 export const getAllPets = async () => {
     try{
         const req = await axios.get(PETS_URL ,headers)
@@ -59,6 +60,12 @@ export const getPetsCity = async (city) => {
     }catch(error){
         return console.error(error)
     }
-}
+};
+
+//POST
+
+//PUT
+
+//DELETE
 
 
