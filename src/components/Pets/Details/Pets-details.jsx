@@ -34,12 +34,19 @@ const PetsDetails = () => {
 
     return (
         <div className="detailPet">
+            <Link to="/pets">
+                <span className="back--button">
+                    <i className="fas fa-chevron-left"></i>
+                </span>
+            </Link>
             <div className="detailPet__sliderImg">
             <Swiper modules={[EffectFade]} effect="fade" className="mySwiper" slidesPerView={1} spaceBetween={0} pagination={true}>
                 <SwiperSlide>
                     <img src={pet.imgPets} alt={pet.name} />
                 </SwiperSlide>
             </Swiper>
+
+
 
                 {/* {
                 numberImg > 0 ?
@@ -79,11 +86,6 @@ const PetsDetails = () => {
             <div className="detailPet__Data--button">
                 <a href="#">Adoptar</a>
             </div>
-            <Link to="/pets">
-                <span className="back--button">
-                    <i className="fas fa-chevron-left"></i>
-                </span>
-            </Link>
         </div>
     )
 }

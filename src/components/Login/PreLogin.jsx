@@ -16,9 +16,11 @@ export default function PreLogin() {
   return (
     <>
       <div className="cont-preLog">
-        <div classname="cont-text">
-          <h4>¿Cómo quieres entrar?</h4>
+
+        <div className="cont-text">
+          <p className="cont-text__p">¿Cómo quieres entrar?</p>
         </div>
+
         <div className="cont-buttons">
           <button className="button" onClick={() => navToLog("toUserLogin")}>
             <p>Usuario</p>
@@ -26,10 +28,13 @@ export default function PreLogin() {
           <button className="button" onClick={() => navToLog("toAssosiationLogin")}>
             <p>Asociacion protectora</p>
           </button>
-          <button className="button-dif" onClick={() => navToLog("toGuestHome")}>
-            <p>Registrarse en otro momento</p>
-          </button>
         </div>
+
+        <div>
+            <p onClick={() => navToLog("toGuestHome")}
+            className="p">Registrarse en otro momento</p>
+        </div>
+
       </div>
     </>
   );

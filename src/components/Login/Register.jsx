@@ -2,21 +2,26 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../api/Login/apiRegister";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye } from "@fortawesome/free-solid-svg-icons";
+import logoReg from "../../assets/img/logoRegister.png";
+
+// const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
-  const { register, handleSubmit,formState:{ errors } } = useForm();
-  const navigate = useNavigate()
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
 
   const submit = (data) => {
     /* console.table(data) */
-    const formData = new FormData()
-    formData.append("name",data.name)
-    formData.append("surname",data.surname)
-    formData.append("telephone",data.telephone)
-    formData.append("email",data.email)
-    formData.append("password",data.password)
-    formData.append("imgAvatar",data.imgAvatar[0])
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("surname", data.surname);
+    formData.append("telephone", data.telephone);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    formData.append("imgAvatar", data.imgAvatar[0]);
     addUser(formData);
   };
 
@@ -32,30 +37,79 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>REGISTER</h2>
-      <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="name"><br/>Name:</label>
-        <input type="text" name="name" {...register("name")} />
+    <div className="cont-register">
+      
+      <div className="header">
+        <p>¡Bienvenido a la pagina de registro!</p>
+      </div>
 
-        <label htmlFor="surname"><br/>Surname:</label>
-        <input type="text" name="surname" {...register("surname")} />
+      <div className="logo">
+        <img src={logoReg} alt="logo:Animales"/>
+      </div>
 
-        <label htmlFor="telephone"><br/>Phone:</label>
-        <input type="text" name="telephone" {...register("telephone")} />
+      <form className="cont-form-reg" onSubmit={handleSubmit(submit)}>
+        <div className="input-box">
+          <input
+            placeholder="¿Cuál es tu nombre?"
+            type="text"
+            name="name"
+            {...register("name")}
+          />
+        </div>
 
-        <label htmlFor="email"><br/>*Email:</label>
-        <input type="text" name="email" {...register("email",{required:{value:true, message:"please enter a email!!"}})} />
-        {errors.email && <span>{errors.email.message}</span>}
+        <div className="input-box">
+          <input
+            placeholder="¿Y el apellido?"
+            type="text"
+            name="surname"
+            {...register("surname")}
+          />
+        </div>
 
-        <label htmlFor="imgAvatar"><br/>*Avatar:</label>
-        <input type="file" name="imgAvatar" {...register("imgAvatar")} />
+        <div className="input-box">
+          <input
+            placeholder="Tu número de contacto"
+            type="text"
+            name="telephone"
+            {...register("telephone")}
+          />
+        </div>
 
-        <label htmlFor="password"><br/>*Password:</label>
-        <input type="text" name="password" {...register("password",{required:{value:true, message:"please enter a password!!"}})} />
-        {errors.password && <span>{errors.password.message}</span>}
-        <br/>
-        <input type="submit" value="submit" />
+        <div className="input-box">
+          <input
+            placeholder="Aqui iría el email!"
+            type="text"
+            name="email"
+            {...register("email", { required: true })}
+          />
+        </div>
+
+        <div className="pass-wrapper input-box">
+          <input
+            placeholder="Y aqui la contraseña!"
+            type={"password"}
+            name="password"
+            ref={register("password", {
+              required: true,
+            })}
+          />
+          {/* <i onClick={togglePasswordVisiblity}>{eye}</i> */}
+        </div>
+
+        <div className="input-box">
+          <label className="custom-file-upload" htmlFor="imgAvatar">
+            <input
+              id="imgAvatar"
+              type="file"
+              name="imgAvatar"
+              {...register("imgAvatar")}
+            />
+            <p>Tu Avatar!!!</p>
+          </label>
+        </div>
+          <button className="button" type="submit" value="submit">
+            <p>Listo!</p>
+          </button>
       </form>
     </div>
   );

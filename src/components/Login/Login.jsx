@@ -1,9 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import { loginUser } from "../../api/Login/apiLogin";
+import logo from "../../assets/img/logo.png";
+
 
 const Login = () => {
-  const { register, handleSubmit,formState: { errors } } = useForm();
+  const navigate = useNavigate();
+
+  // const [passwordShown, setPasswordShown] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+  } = useForm();
 
   const submit = (data) => {
     signIn(data);
@@ -14,8 +24,8 @@ const Login = () => {
       const res = await loginUser(user);
       localStorage.setItem("token", res.token);
       localStorage.setItem("user", JSON.stringify(res.userInBd));
-      if(!res.token){
-        alert("WRONG CREDENTIALS")
+      if (!res.token) {
+        alert("WRONG CREDENTIALS");
       }
     } catch (error) {
       return console.log(error);
@@ -23,18 +33,48 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>LOGIN</h2>
-      <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="email"><br/>email:</label>
-        <input type="text" name="email" {...register("email", {required:{value:true, message:"please enter email"}})} />
-        {errors.email && <span>{errors.email.message}</span>}
-
-        <label htmlFor="password"><br/>password:</label>
-        <input type="password" name="password" {...register("password",{required:{value:true,message:"please enter password"}})} />
-        {errors.password && <span>{errors.password.message}</span>}
-        <br/>
-        <input type="submit" value="submit" />
+    <div className="cont-Login">
+      <div className="cont-logo">
+        <img src={logo} alt="logo:Lucky" />
+      </div>
+      <div className="cont-header">
+        <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+      </div>
+      <form className="cont-form" onSubmit={handleSubmit(submit)}>
+        <input
+          className="input"
+          placeholder="email@email.com"
+          type="text"
+          name="email"
+          {...register("email", {
+            required: true,
+          })}
+        />
+        <div className="pass-wrapper">
+           <input
+          className="input"
+          placeholder="password"
+          type="password"
+          name="password"
+          ref={register("password", {
+            required: true,
+          })}
+        />
+        
+        </div>
+       
+        <div className="forgot-pass">
+          <p>¿Has olvidado tu contraseña?</p>
+        </div>
+        <div className="cont-inputs-buttons">
+          <input className="in-session" type="submit" value="Iniciar session" />
+          <input
+            className="create-acc"
+            type="button"
+            value="Crear cuenta"
+            onClick={() => navigate("/user/register")}
+          />
+        </div>
       </form>
     </div>
   );
