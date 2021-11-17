@@ -22,16 +22,18 @@ const Login = () => {
   const signIn = async (user) => {
     try {
       const res = await loginUser(user);
-      localStorage.setItem("token", res.token);
+      localStorage.setItem("token",res.token);
       localStorage.setItem("user", JSON.stringify(res.userInBd));
-      if (!res.token) {
-        alert("WRONG CREDENTIALS");
+      const userInLocal = localStorage.getItem("user")
+      if(userInLocal){
+        navigate("/home")
       }
+      console.log("user ->> ",userInLocal)
     } catch (error) {
       return console.log(error);
     }
   };
-
+  
   return (
     <div className="cont-Login">
       <div className="cont-logo">
@@ -56,7 +58,7 @@ const Login = () => {
           placeholder="password"
           type="password"
           name="password"
-          ref={register("password", {
+          {...register("password", {
             required: true,
           })}
         />
@@ -67,13 +69,13 @@ const Login = () => {
           <p>¿Has olvidado tu contraseña?</p>
         </div>
         <div className="cont-inputs-buttons">
-          <input className="in-session" type="submit" value="Iniciar session" />
           <input
             className="create-acc"
             type="button"
             value="Crear cuenta"
             onClick={() => navigate("/user/register")}
           />
+          <input className="in-session" type="submit" value="Iniciar session" />
         </div>
       </form>
     </div>

@@ -14,7 +14,7 @@ const Register = () => {
 
 
   const submit = (data) => {
-    /* console.table(data) */
+    //console.table(data)
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("surname", data.surname);
@@ -68,6 +68,42 @@ const Register = () => {
 
         <div className="input-box">
           <input
+            placeholder="El DNI aqui"
+            type="text"
+            name="DNI"
+            {...register("DNI")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
+            placeholder="Ciudad"
+            type="text"
+            name="city"
+            {...register("city")}
+          />
+        </div>
+        
+        <div className="input-box">
+          <input
+            placeholder="Calle"
+            type="text"
+            name="street"
+            {...register("street")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
+            placeholder="Codigo Postal"
+            type="text"
+            name="pc"
+            {...register("pc")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
             placeholder="Tu número de contacto"
             type="text"
             name="telephone"
@@ -80,7 +116,7 @@ const Register = () => {
             placeholder="Aqui iría el email!"
             type="text"
             name="email"
-            {...register("email", { required: true })}
+            {...register("email")}
           />
         </div>
 
@@ -89,7 +125,7 @@ const Register = () => {
             placeholder="Y aqui la contraseña!"
             type={"password"}
             name="password"
-            ref={register("password", {
+            {...register("password", {
               required: true,
             })}
           />
@@ -109,7 +145,7 @@ const Register = () => {
         </div>
           <button className="button" type="submit" value="submit">
             <p>Listo!</p>
-          </button>
+            </button>
       </form>
     </div>
   );
