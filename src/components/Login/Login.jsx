@@ -29,13 +29,18 @@ const Login = () => {
   const signIn = async (user) => {
     try {
       const res = await loginUser(user);
-      localStorage.setItem("token",res);
-      /* localStorage.setItem("user", JSON.stringify(res.user)); */
+      localStorage.setItem("token",res.token);
+      localStorage.setItem("user", JSON.stringify(res.userInBd));
+      const userInLocal = localStorage.getItem("user")
+      if(userInLocal){
+        navigate("/home")
+      }
+      console.log("user ->> ",userInLocal)
     } catch (error) {
       return console.log(error);
     }
   };
-
+  
   return (
     <div className="cont-Login">
       <div className="cont-logo">
