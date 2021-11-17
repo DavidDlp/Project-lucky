@@ -63,7 +63,7 @@ const Login = () => {
           placeholder="password"
           type={passwordShown ? "text" : "password"}
           name="password"
-          ref={register("password", {
+          {...register("password", {
             required: true,
           })}
         />
@@ -74,13 +74,13 @@ const Login = () => {
           <p>¿Has olvidado tu contraseña?</p>
         </div>
         <div className="cont-inputs-buttons">
-          <input className="in-session" type="submit" value="Iniciar session" />
           <input
             className="create-acc"
             type="button"
             value="Crear cuenta"
             onClick={() => navigate("/user/register")}
           />
+          <input className="in-session" type="submit" value="Iniciar session" />
         </div>
       </form>
     </div>

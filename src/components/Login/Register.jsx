@@ -84,7 +84,7 @@ const Register = () => {
             placeholder="Aqui iría el email!"
             type="text"
             name="email"
-            {...register("email", { required: true })}
+            {...register("email")}
           />
         </div>
 
@@ -93,9 +93,7 @@ const Register = () => {
             placeholder="Y aqui la contraseña!"
             type={passwordShown ? "text" : "password"}
             name="password"
-            ref={register("password", {
-              required: true,
-            })}
+            {...register("password")}
           />
           <i onClick={togglePasswordVisiblity}>{eye}</i>
         </div>
@@ -111,9 +109,8 @@ const Register = () => {
             <p>Tu Avatar!!!</p>
           </label>
         </div>
-          <button className="button" type="submit" value="submit">
+          <input className="button" type="submit" value="submit"/>
             <p>Listo!</p>
-          </button>
       </form>
     </div>
   );
