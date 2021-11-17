@@ -2,27 +2,24 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { getAllPets } from "../../api/servicesPets/apiPets";
 
+//SLIDER
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
-
 // import Swiper core and required modules
 import SwiperCore, {
     Pagination
 } from 'swiper';
+// install Swiper modules
+SwiperCore.use([Pagination]);
 
-//Import Images
+//IMAGES
 import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
 import add from './../../assets/img/mS.png';
 import filtros from './../../assets/img/filtros.png';
-
-  
-// install Swiper modules
-SwiperCore.use([Pagination]);
 
 export default function Pets (){
 
@@ -42,7 +39,7 @@ export default function Pets (){
     useEffect(() =>{
             getPetsApi();
         }, [])
-
+   
     return(
         <div className="Pets-main" >
             <div>
@@ -70,8 +67,7 @@ export default function Pets (){
                 {pets.map(item => {
                         return (
                             <div key={JSON.stringify(item)}>
-                                <Link to ={{ pathname: "/pets/details",
-                                data : item }}>
+                                <Link to ="/pets/details/?id={item._id}">
                                     <img src={item.imgPets} alt="pets"/>
                                 </Link>
                                 <div>
