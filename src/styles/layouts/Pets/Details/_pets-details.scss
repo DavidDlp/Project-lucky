@@ -10,7 +10,15 @@
             z-index: 2;
         }
     }
+
+                img{
+                width: 101%;
+                margin-left: -1%;
+                height: auto;
+                z-index: 1; 
+            }
     .detailPet__sliderImg{
+        width: 100vw;
         .swiper-container{    
             .swiper-pagination{        
                 .swiper-pagination-bullet{
@@ -31,12 +39,12 @@
         }
 
         .swiper-slide{
-            img{
-                width: 102vw;
-                height: auto;
-                margin-left: -0.4rem;
-                z-index: 1; 
-            }
+            // img{
+            //     width: 102vw;
+            //     height: auto;
+            //     margin-left: -0.4rem;
+            //     z-index: 1; 
+            // }
         }
     }
 

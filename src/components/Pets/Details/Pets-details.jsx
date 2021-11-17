@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link  } from 'react-router-dom';
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Pagination } from 'swiper';
 
 import { getPetsById } from "./../../../api/servicesPets/apiPets";
@@ -40,11 +40,11 @@ const PetsDetails = () => {
                 </span>
             </Link>
             <div className="detailPet__sliderImg">
-            <Swiper modules={[EffectFade]} effect="fade" className="mySwiper" slidesPerView={1} spaceBetween={0} pagination={true}>
-                <SwiperSlide>
+            {/* <Swiper modules={[EffectFade]} effect="fade" className="mySwiper" slidesPerView={1} spaceBetween={0} pagination={true}>
+                <SwiperSlide> */}
                     <img src={pet.imgPets} alt={pet.name} />
-                </SwiperSlide>
-            </Swiper>
+                {/* </SwiperSlide>
+            </Swiper> */}
 
 
 
