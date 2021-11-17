@@ -29,8 +29,8 @@ const Login = () => {
   const signIn = async (user) => {
     try {
       const res = await loginUser(user);
-      localStorage.setItem("token",res.data);
-      localStorage.setItem("user", JSON.stringify(res.userInBd));
+      localStorage.setItem("token",res);
+      /* localStorage.setItem("user", JSON.stringify(res.user)); */
     } catch (error) {
       return console.log(error);
     }
