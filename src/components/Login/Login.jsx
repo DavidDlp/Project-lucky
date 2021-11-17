@@ -29,11 +29,8 @@ const Login = () => {
   const signIn = async (user) => {
     try {
       const res = await loginUser(user);
-      localStorage.setItem("token", res.token);
-      localStorage.setItem("user", JSON.stringify(res.userInBd));
-      if (!res.token) {
-        alert("WRONG CREDENTIALS");
-      }
+      localStorage.setItem("token",res);
+      /* localStorage.setItem("user", JSON.stringify(res.userInBd)); */
     } catch (error) {
       return console.log(error);
     }
@@ -63,7 +60,7 @@ const Login = () => {
           placeholder="password"
           type={passwordShown ? "text" : "password"}
           name="password"
-          ref={register("password", {
+          {...register("password", {
             required: true,
           })}
         />

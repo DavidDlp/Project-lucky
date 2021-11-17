@@ -18,15 +18,15 @@ const Register = () => {
   };
 
   const submit = (data) => {
-    /* console.table(data) */
+    /* console.table(data)
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("surname", data.surname);
     formData.append("telephone", data.telephone);
     formData.append("email", data.email);
     formData.append("password", data.password);
-    formData.append("imgAvatar", data.imgAvatar[0]);
-    addUser(formData);
+    formData.append("imgAvatar", data.imgAvatar[0]); */
+    addUser(data);
   };
 
   const addUser = async (user) => {
@@ -72,6 +72,42 @@ const Register = () => {
 
         <div className="input-box">
           <input
+            placeholder="El DNI aqui"
+            type="text"
+            name="DNI"
+            {...register("DNI")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
+            placeholder="Ciudad"
+            type="text"
+            name="city"
+            {...register("city")}
+          />
+        </div>
+        
+        <div className="input-box">
+          <input
+            placeholder="Calle"
+            type="text"
+            name="street"
+            {...register("street")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
+            placeholder="Codigo Postal"
+            type="text"
+            name="pc"
+            {...register("pc")}
+          />
+        </div>
+
+        <div className="input-box">
+          <input
             placeholder="Tu número de contacto"
             type="text"
             name="telephone"
@@ -93,14 +129,14 @@ const Register = () => {
             placeholder="Y aqui la contraseña!"
             type={passwordShown ? "text" : "password"}
             name="password"
-            ref={register("password", {
+            {...register("password", {
               required: true,
             })}
           />
           <i onClick={togglePasswordVisiblity}>{eye}</i>
         </div>
 
-        <div className="input-box">
+        {/* <div className="input-box">
           <label className="custom-file-upload" htmlFor="imgAvatar">
             <input
               id="imgAvatar"
@@ -110,7 +146,7 @@ const Register = () => {
             />
             <p>Tu Avatar!!!</p>
           </label>
-        </div>
+        </div> */}
           <button className="button" type="submit" value="submit">
             <p>Listo!</p>
           </button>
