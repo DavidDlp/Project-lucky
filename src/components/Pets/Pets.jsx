@@ -1,28 +1,25 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { getAllPets } from "../../api/servicesPets/apiPets";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import 'swiper/swiper.scss';
-import 'swiper/components/pagination/pagination.scss';
-
-// import Swiper core and required modules
-import SwiperCore, {
-    Pagination
-} from 'swiper';
-
-//Import Images
+//IMAGES
 import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
 import add from './../../assets/img/mS.png';
 import filtros from './../../assets/img/filtros.png';
 
-  
+//SLIDER
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/pagination/pagination.scss';
+// import Swiper core and required modules
+import SwiperCore, {
+    Pagination
+} from 'swiper';
 // install Swiper modules
 SwiperCore.use([Pagination]);
+
 
 export default function Pets (){
 
@@ -35,6 +32,7 @@ export default function Pets (){
         try{
             const result = await getAllPets(); 
             setPets(result.data);
+            setFinallyPet(result.data);
             console.log(result.data);
 
         }catch(error){
@@ -44,10 +42,10 @@ export default function Pets (){
 
 //FUNCIONALIDADES
     const handleChange = e =>{
-        console.log("Busqueda: " +e.target.value);
+        // console.log("Busqueda: " +e.target.value);
         setSchearchPet(e.target.value);
-        console.log("search: " + searchPet)
-        
+        // console.log("search: " + searchPet)
+        filterSearch(e.target.value)
     };
 
     const filterSearch = (parameterSearch) =>{
@@ -70,7 +68,7 @@ export default function Pets (){
         <div className="Pets-main" >
             <div>
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
-                <img onClick={(e)=>{ filterSearch(e.target.value)}} src={search} alt="seach"/>
+                <img src={search} alt="search"/>
             </div>
             <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
@@ -93,8 +91,7 @@ export default function Pets (){
                 {pets.map(item => {
                         return (
                             <div key={JSON.stringify(item)}>
-                                <Link to ={{ pathname: "/pets/details",
-                                data : item }}>
+                                <Link to ="/pets/details/?id={item._id}">
                                     <img src={item.imgPets} alt="pets"/>
                                 </Link>
                                 <div>
