@@ -1,15 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllPets } from "../../api/servicesPets/apiPets";
 //IMAGES
-import arrow from './../../assets/img/arrow.png';
+// import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
-import add from './../../assets/img/mS.png';
+// import add from './../../assets/img/mS.png';
 import filtros from './../../assets/img/filtros.png';
+import Navbar from "../Navbar/Navbar";
 
 //SLIDER
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
@@ -17,11 +19,13 @@ import 'swiper/components/pagination/pagination.scss';
 import SwiperCore, {
     Pagination
 } from 'swiper';
+
+
+
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-
-export default function Pets (){
+export default function Pets() {
 
     const [pets, setPets] = useState([])
     const [finallyPet, setFinallyPet] = useState([])
@@ -35,9 +39,9 @@ export default function Pets (){
             setFinallyPet(result.data);
             console.log(result.data);
 
-        }catch(error){
+        } catch (error) {
             return console.error(error)
-        }   
+        }
     };
 
 //FUNCIONALIDADES
@@ -65,15 +69,22 @@ export default function Pets (){
             getPetsApi();
         }, []);
 
-    return(
+    useEffect(() => {
+        getPetsApi();
+    }, [])
+
+    console.log(pets);
+
+    return (
         <>
-        {/* <Navbar /> */}
-        <div className="Pets-main" >
-            <div>
+            <Navbar />
+            <div className="pets" >
+                <div className="pets__search">
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
-                <img src={search} alt="search"/>
-            </div>
-            <div className= "favorite-pets" >
+                    <img src={search} alt="seach" />
+
+                </div>
+                {/* <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
                 <p>Accede al perfil de tus mascotas</p>
                 <div className= "separation">
@@ -81,32 +92,37 @@ export default function Pets (){
                         <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide>
                     </Swiper>
                 </div>
-            </div>
-            <div className="container-btn">
+            </div> */}
+
+                {/* <div className="container-btn">
                 <span>Estado de adopcion</span>
                 <img src={arrow} alt="flecha"/>
-            </div>
-            <div className="container-filter">
-                <h3>Animales en adopcion</h3>
-                <img src={filtros} alt="filtrado" />
-            </div>
-            <div>
-                {pets.map(item => {
+            </div> */}
+                <div className="pets__separation" />
+                <div className="pets__filter">
+                    <h3>Animales en adopcion</h3>
+                    <img src={filtros} alt="filtrado" />
+                </div>
+                <div className="pets__response">
+                    {pets.map(item => {
                         return (
-                            <div key={JSON.stringify(item)}>
-                                <Link to ={{ pathname: "/pets/details/"+item._id}}>
-                                    <img src={item.imgPets} alt="pets"/>
-                                </Link>
-                                <div>
-                                    <h3>{item.name}</h3>
-                                    <span>{item.city}</span>
+                            <div className="pets__response--item">
+                                <div className="pets__response--item--img" key={item}>
+                                    <Link to={{ pathname: "/pets/details/" + item._id }}>
+                                        <img src={item.imgPets} alt="pets" />
+                                        <div className="pets__response--item--content">
+                                        <h3>{item.name}</h3>
+                                        <span>{item.city}</span>
+                                    </div>
+                                    </Link>
                                 </div>
                             </div>
+
                         )
                     })}
+                </div>
             </div>
-        </div>        
-        
+
         </>
     )
 }

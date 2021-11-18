@@ -21,6 +21,7 @@ function App() {
   return (
     <>
       <div className="App">
+        
         <BrowserRouter>
           {/* <Link to="/user/register">|Register|</Link>
           <Link to="/user/login">|Login|</Link>
@@ -39,9 +40,6 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Onboarding/>}/>
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/pets" element={<Pets/>}/>
-            <Route path="/pets/details/:id" element={<PetsDetails/>}/>
             <Route path="/user" element={<PreLogin/>}/>
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
@@ -51,8 +49,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/petscrud" element={<PetsCrud/>} />
             <Route path="/petscreate" element={<PetsCreate />} />
-    
-         
+            <Route path="/home" element={<Home />}/>
+            <Route path="/pets" element={<Pets/>}/>
+            <Route path="/pets/details/:id" element={<PetsDetails/>}/>         
           </Routes>
         </BrowserRouter>
       </div>

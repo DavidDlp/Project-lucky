@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-
-import profilePhoto from "../../assets/icons/user.svg";
+import Navbar from "../Navbar/Navbar";
 
 export default function Profile() {
+
+  //Para consumir los datos hay que utilizar useEffect con JSON.parse
+  const [userInLocal, setUserInLocal] = useState({});
+  
+  useEffect(() => {
+    setUserInLocal(JSON.parse(localStorage.getItem("user")));
+  },[])
+
+  console.log(userInLocal);
+
   return (
     <>
-      <div className="total-container">
-        <div className="content">
-          <img className='img-profile' src={profilePhoto} alt="imagen de usuario" />
-          <h4>Nombre</h4>
-          <h5>Apellidos</h5>
-          <p>Email: </p>
-          <p>DNI: </p>
-          <p>Telefono: </p>
-          <p>Dirección: </p>
+      <Navbar />
+      <div className="profile">
+        <div className="profile__content">
+          <img className='img-profile' src={userInLocal.imgAvatar} alt="imagen de usuario" />
+          <h4>{userInLocal.name}</h4>
+          <h5>{userInLocal.surname}</h5>
+          <p><span>Email: </span> {userInLocal.email}</p>
+          <p><span>Teléfono: </span> {userInLocal.telephone}</p>
+          <p><span>Dirección: </span> {userInLocal.street}, {userInLocal.pc}</p>
         </div>
         <div className="logout">
-          <Link to="/user">
-                <span className="back--button">
+            <Link to="/user">
+                <span className="logout__back--button">
                     <button>Cerrar Sesión</button>
                 </span>
             </Link>

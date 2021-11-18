@@ -10,6 +10,8 @@ const PetHealth = ({pet}) => {
     let sterilized = pet.sterilized ? 'Sí' : 'No';
     let identified = pet.identified ? 'Sí' : 'No';
     let microchip = pet.microchip ? 'Sí' : 'No';
+
+    console.log(vaccinated);
     // let other = pet.other ? 'Sí' : 'No';
     
     return (
