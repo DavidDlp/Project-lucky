@@ -107,7 +107,7 @@ export default function Pets() {
                     {pets.map(item => {
                         return (
                             <div className="pets__response--item">
-                                <div className="pets__response--item--img" key={item}>
+                                <div className="pets__response--item--img" key={JSON.stringify(item)}>
                                     <Link to={{ pathname: "/pets/details/" + item._id }}>
                                         <img src={item.imgPets} alt="pets" />
                                         <div className="pets__response--item--content">
