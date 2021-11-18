@@ -61,13 +61,8 @@ export default function Pets (){
     
     useEffect(() =>{
             getPetsApi();
-<<<<<<< HEAD
-        }, [])
-   
-=======
         }, []);
 
->>>>>>> test-before-main
     return(
         <div className="Pets-main" >
             <div>
