@@ -11,8 +11,9 @@ export default function Logout() {
 
   return (
     <div className='logout'>
-      <h2>LOGOUT</h2>
-      <button onClick={logout}>Logout</button>;
+      <span className="logout__back--button">
+        <button onClick={logout}>Cerrar sesión</button>
+      </span>
     </div>
   );
 }

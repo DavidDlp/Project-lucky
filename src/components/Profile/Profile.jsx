@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import Logout from "../Login/Logout";
 import Navbar from "../Navbar/Navbar";
 
 export default function Profile() {
@@ -11,7 +12,7 @@ export default function Profile() {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
   },[])
 
-  console.log(userInLocal);
+  // console.log(userInLocal);
 
   return (
     <>
@@ -25,13 +26,7 @@ export default function Profile() {
           <p><span>Teléfono: </span> {userInLocal.telephone}</p>
           <p><span>Dirección: </span> {userInLocal.street}, {userInLocal.pc}</p>
         </div>
-        <div className="logout">
-            <Link to="/user">
-                <span className="logout__back--button">
-                    <button>Cerrar Sesión</button>
-                </span>
-            </Link>
-        </div>
+        <Logout />
         
       </div>
     </>

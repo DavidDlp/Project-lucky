@@ -37,7 +37,7 @@ export default function Pets() {
             const result = await getAllPets(); 
             setPets(result.data);
             setFinallyPet(result.data);
-            console.log(result.data);
+            // console.log(result.data);
 
         } catch (error) {
             return console.error(error)
@@ -70,7 +70,7 @@ export default function Pets() {
         }, []);
 
 
-    console.log(pets);
+    // console.log(pets);
 
     return (
         <>
@@ -78,8 +78,7 @@ export default function Pets() {
             <div className="pets" >
                 <div className="pets__search">
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
-                    <img src={search} alt="seach" />
-
+                    <img src={search} alt="search" />
                 </div>
                 {/* <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
@@ -103,8 +102,8 @@ export default function Pets() {
                 <div className="pets__response">
                     {pets.map(item => {
                         return (
-                            <div className="pets__response--item">
-                                <div className="pets__response--item--img" key={JSON.stringify(item)}>
+                            <div className="pets__response--item" key={JSON.stringify(item)}>
+                                <div className="pets__response--item--img">
                                     <Link to={{ pathname: "/pets/details/" + item._id }}>
                                         <img src={item.imgPets} alt="pets" />
                                         <div className="pets__response--item--content">

@@ -53,12 +53,10 @@ const Login = () => {
           </>
         )
       }
-
-      
     } catch (error) {
       return console.log(error);
     }
-  };
+  }
   
   return (
     <div className="cont-Login">
