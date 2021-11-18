@@ -16,7 +16,7 @@ const Association = () => {
     try {
       await deleteAssociations(id);
       const newElements = associations.filter((item) => item._id !== id);
-      console.log("esto es el ", newElements)
+      console.log("esto es el ", newElements);
       setAssociatios(newElements);
     } catch (error) {}
   };
@@ -27,24 +27,27 @@ const Association = () => {
 
   return (
     <>
-           <h1>Asociaciones</h1>           
+         <h1>Asociaciones</h1>                
       <div className="content">
-        {associations.map((item) => {
+            
+        {associations.map((associations) => {
           return (
-            <div key={JSON.stringify(item)}>
-              <p>Nombre: {item.name}</p>           
-              <p>Email: {item.email}</p>   
-              <p>Telefono: {item.phone}</p>           
-              <p>Dirección: {item.address}</p>             
-              <p>Ciudad: {item.city}</p>
-              <button onClick={() => delAssociation(item._id)}>Borrar</button> 
-                     
+            <div key={JSON.stringify(associations)}>
+                            <p>Nombre: {associations.name}</p>                 
+                      <p>Email: {associations.email}</p>                 {" "}
+              <p>Telefono: {associations.phone}</p>                         {" "}
+              <p>Dirección: {associations.address}</p>                         
+                <p>Ciudad: {associations.city}</p> 
+              <button onClick={() => delAssociation(associations._id)}>
+                Borrar
+              </button>
+                       
             </div>
           );
         })}
          
       </div>
-         {" "}
+    
     </>
   );
 };
