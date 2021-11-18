@@ -57,7 +57,7 @@ export default function Pets() {
         let resultSearch = finallyPet.filter((element) =>{
             if (element.name.toString().toLowerCase().includes(parameterSearch.toLowerCase())
                 || element.species.toString().toLowerCase().includes(parameterSearch.toLowerCase())
-                // || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+                || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
             ){
                 return element;
             }
