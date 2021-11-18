@@ -1,10 +1,12 @@
 
+import { addToken } from "../utils/jwt";
 import { PETS_URL } from "./apiRoutes";
 
 const headers = {
   "Accept": "application/json",
   "Content-Type": "application/json",
   "Access-Control-Allow-Origin": "*",
+  "Authorization": addToken(),
 };
 
 
