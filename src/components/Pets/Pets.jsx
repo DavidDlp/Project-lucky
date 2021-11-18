@@ -27,27 +27,50 @@ SwiperCore.use([Pagination]);
 export default function Pets (){
 
     const [pets, setPets] = useState([])
+    const [finallyPet, setFinallyPet] = useState([])
+    const [searchPet, setSchearchPet] = useState("")
 
+//PETICIONES
     const getPetsApi = async () =>{
         try{
-            const result = await getAllPets();
-            setPets(result.data)
-            console.log(result.data)
+            const result = await getAllPets(); 
+            setPets(result.data);
+            console.log(result.data);
 
         }catch(error){
             return console.error(error)
         }   
     };
+
+//FUNCIONALIDADES
+    const handleChange = e =>{
+        console.log("Busqueda: " +e.target.value);
+        setSchearchPet(e.target.value);
+        console.log("search: " + searchPet)
+        
+    };
+
+    const filterSearch = (parameterSearch) =>{
+        let resultSearch = finallyPet.filter((element) =>{
+            if (element.name.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+                || element.species.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+                || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+            ){
+                return element;
+            }
+        });
+        setPets(resultSearch)
+    };
     
     useEffect(() =>{
             getPetsApi();
-        }, [])
+        }, []);
 
     return(
         <div className="Pets-main" >
             <div>
-                <input className="input-btn" type="text" placeholder="Buscar" onChange={(e) =>{ }}/>
-                <img src={search} alt="seach"/>
+                <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
+                <img onClick={(e)=>{ filterSearch(e.target.value)}} src={search} alt="seach"/>
             </div>
             <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
