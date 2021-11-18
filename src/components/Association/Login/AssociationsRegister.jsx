@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { registerUser } from "../../api/Login/apiRegister";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import logoReg from "../../assets/img/logoRegister.png";
+import logoReg from "../../../assets/img/logoRegister.png";
+import { registerAssociation } from "../../../api/Login/AssociationLogin/AssociationLogin";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 
-const Register = () => {
+const AssociationRegister = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
@@ -17,33 +17,29 @@ const Register = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
-
   const submit = (data) => {
-    // console.table(data)
     const formData = new FormData();
     formData.append("name", data.name);
-    formData.append("surname", data.surname);
-    formData.append("telephone", data.telephone);
-    formData.append("street", data.street);
+    formData.append("address", data.address);
+    formData.append("phone", data.phone);
     formData.append("city", data.city);
-    formData.append("pc", data.pc);
     formData.append("email", data.email);
     formData.append("password", data.password);
-    formData.append("imgAvatar", data.imgAvatar[0]);
-    addUser(formData);
+    formData.append("imgLogo", data.imgLogo[0]);
+    addAssociation(formData);
+    console.table("form data ->",formData)
   };
 
-  const addUser = async (user) => {
+  const addAssociation = async (user) => {
     try {
-      const newUser = await registerUser(user);
-      if (newUser) {
-        navigate("/user/login");
+      const newAssociation = await registerAssociation(user);
+      if (newAssociation) {
+        navigate("/associations/login");
       }
     } catch (error) {
       return console.log(error);
     }
   };
-
   return (
     <div className="cont-register">
       
@@ -67,19 +63,10 @@ const Register = () => {
 
         <div className="input-box">
           <input
-            placeholder="Apellidos"
+            placeholder="Dirección"
             type="text"
-            name="surname"
-            {...register("surname")}
-          />
-        </div>
-
-        <div className="input-box">
-          <input
-            placeholder="DNI"
-            type="text"
-            name="DNI"
-            {...register("DNI")}
+            name="address"
+            {...register("address")}
           />
         </div>
 
@@ -94,28 +81,10 @@ const Register = () => {
         
         <div className="input-box">
           <input
-            placeholder="Calle"
-            type="text"
-            name="street"
-            {...register("street")}
-          />
-        </div>
-
-        <div className="input-box">
-          <input
-            placeholder="Codigo Postal"
-            type="text"
-            name="pc"
-            {...register("pc")}
-          />
-        </div>
-
-        <div className="input-box">
-          <input
             placeholder="Teléfono"
             type="text"
-            name="telephone"
-            {...register("telephone")}
+            name="phone"
+            {...register("phone")}
           />
         </div>
 
@@ -141,14 +110,14 @@ const Register = () => {
         </div>
 
         <div className="input-box">
-          <label className="custom-file-upload" htmlFor="imgAvatar">
+          <label className="custom-file-upload" htmlFor="imgLogo">
             <input
-              id="imgAvatar"
+              id="imgLogo"
               type="file"
-              name="imgAvatar"
-              {...register("imgAvatar")}
+              name="imgLogo"
+              {...register("imgLogo")}
             />
-            <p>Sube tu Avatar</p>
+            <p>Sube tu Logo</p>
           </label>
         </div>
           <button className="button" type="submit" value="submit">
@@ -159,4 +128,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AssociationRegister;

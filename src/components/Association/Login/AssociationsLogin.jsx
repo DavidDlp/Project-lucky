@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { loginUser } from "../../api/Login/apiLogin";
-import logo from "../../assets/img/logo.png";
+import logo from "../../../assets/img/logo.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { loginAssociation } from "../../../api/Login/AssociationLogin/AssociationLogin";
+
 const eye = <FontAwesomeIcon icon={faEye}/>;
 
-
-const Login = () => {
+const AssociationLogin = () => {
   const navigate = useNavigate();
 
   const [passwordShown, setPasswordShown] = useState(false);
@@ -28,21 +28,21 @@ const Login = () => {
     signIn(data);
   };
 
-  const signIn = async (user) => {
+  const signIn = async (association) => {
     try {
-      const res = await loginUser(user);
+      const res = await loginAssociation(association);
       localStorage.setItem("token",res.token);
-      localStorage.setItem("user", JSON.stringify(res.userInBd));
-      const userInLocal = localStorage.getItem("user");
-      if(userInLocal){
+      localStorage.setItem("association", JSON.stringify(res.associationInBd));
+      const associationInLocal = localStorage.getItem("association");
+      if(associationInLocal){
         return(
           <Link
             to={{
-              pathname: "/home",
-              state: userInLocal
+              pathname: "/petscrud",
+              state: associationInLocal
             }}
           >
-            {navigate("/home")}
+            {navigate("/petscrud")}
           </Link>
         )
       }else{
@@ -98,7 +98,7 @@ const Login = () => {
             className="create-acc"
             type="button"
             value="Crear cuenta"
-            onClick={() => navigate("/user/register")}
+            onClick={() => navigate("/associations/register")}
           />
           <input className="in-session" type="submit" value="Iniciar sesión" />
         </div>
@@ -107,4 +107,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AssociationLogin;
+
