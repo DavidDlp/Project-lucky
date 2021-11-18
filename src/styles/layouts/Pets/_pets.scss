@@ -1,36 +1,158 @@
-.input-btn {
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid black;
-    font-size: 18px;
-    margin: 20px;
-    padding-left: 10px;
-};
+// .input-btn {
+//     width: 200px;
+//     height: 40px;
+//     border-radius: 10px;
+//     border: 1px solid black;
+//     font-size: 18px;
+//     margin: 20px;
+//     padding-left: 10px;
+// };
 
-.favorite-pets{
-    h3, p {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    } 
-};
+// .favorite-pets{
+//     h3, p {
+//         margin-block-start: 0em;
+//         margin-block-end: 0em;
+//         margin-inline-start: 0px;
+//         margin-inline-end: 0px;
+//     } 
+// };
 
-.container-btn{
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px;
-};
+// .container-btn{
+//     border: 1px solid black;
+//     border-radius: 10px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 10px;
+//     margin: 10px;
+// };
 
-.container-filter{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
+// .container-filter{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     margin: 10px;
+// }
+
+.pets{
+    margin: $marginMain;
+    margin-bottom: $marginBottomNavbar;
+
+    a{
+        text-decoration: none;
+    }
+    
+    &__search{
+        position: relative;
+        width: 80vw;
+        input{
+            width: 100%;
+            border: 1px solid $blueCloud;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 14px;
+            color: $blueDark;
+            margin-bottom: 1.5rem;
+
+            &:focus-visible{
+                outline: none;
+                border: 1px solid $blueCloud;
+            }
+        }
+
+        img{
+            position: absolute;
+            top: 0.40rem;
+            right: -1rem;
+        };
+    }
+
+    &__separation{
+        border-bottom: 1px solid $blueCloud;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__filter{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1.5rem 0rem;
+
+        h3{
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            color: $ocean;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        img{
+            display:none;
+        }
+
+        .container-filter{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+
+            .filter-btn{
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+                border: 1px solid black;
+                font-size: 18px;
+                margin: 20px;
+                padding-left: 10px;
+            }
+        }
+    }
+
+    &__response{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        &--item{
+            border: 2px solid $blueCloud;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            padding: 0rem;
+
+            &--img{
+                padding: 0.5rem 0.5rem 0.2rem 0.4rem;
+                img{
+                    width: 100%;
+                    border-radius: 4px;
+                }
+            }
+
+            &--content{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0.3rem;
+
+                h3{
+                    margin-block-start: 0em;
+                    margin-block-end: 0em;
+                    font-size: 23px;
+                    font-weight: 700;
+                    color: $ocean;
+                }
+
+                span{
+                    color: $dark;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }
 

@@ -1,0 +1,103 @@
+
+
+
+.cont-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+
+    .logo{
+        img{
+            width: 100px;
+        }
+    }
+    .header{
+        font-size: 20px;
+        font-weight: 500;
+        color:rgb(1,116,142);
+
+        text-align: center;
+        margin:10px 20px;
+        p{
+            margin: 0%;
+        }
+    }
+    
+    .cont-form-reg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .input-box{
+            
+            input{
+                border: 0px;
+                border-bottom: 1px solid rgb(1,116,142);
+                width: 316px;
+                margin-bottom: 22px;
+                outline-style: none;
+                text-align: center;
+            }
+        }
+
+
+        .pass-wrapper{
+            position: relative;
+            display: flex;
+            margin-bottom: 0px;
+            justify-content: center;
+
+            .input{
+                margin-bottom: 8px;
+            }
+            
+            i {
+                background-image: url("../../../assets/img/ojo.png");
+                background-position: center;
+                
+                color:rgba(0, 0, 0, 0);
+                position: absolute;
+                right: 0%;
+                top:-10%;
+            }
+        }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            background-color:#f17f7f;
+            border-radius: 4px;
+        
+            
+            input[type="file"] {
+                display:none; 
+            }
+            p{
+                margin:0px;
+                padding:3px;
+                color:white;
+            }
+        }
+
+        .button{
+            background-color: rgb(1, 116, 142);
+            border: 1px solid rgb(1, 116, 142);
+            border-radius: 5px;
+            width: 196px;
+            height: 40px;
+            margin: 0px;
+            padding: 11px;
+            color: white;
+            p{
+                margin:0;
+            }
+        }
+    }
+}
+
+
+

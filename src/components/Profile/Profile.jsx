@@ -1,54 +1,39 @@
-import React from "react";
-
-
-import profilePhoto from "../../assets/icons/user.svg";
-import profileIcono from "../../assets/icons/chica.svg";
-import localizacion from "../../assets/icons/localization.svg";
-import favorites from "../../assets/icons/favoritosCopy.svg";
-import notificaciones from "../../assets/icons/notification.svg";
-import mascota from "../../assets/icons/mascota_2.svg";
-import adelante from "../../assets/icons/adelante.svg";
+import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import Navbar from "../Navbar/Navbar";
 
 export default function Profile() {
+
+  //Para consumir los datos hay que utilizar useEffect con JSON.parse
+  const [userInLocal, setUserInLocal] = useState({});
+  
+  useEffect(() => {
+    setUserInLocal(JSON.parse(localStorage.getItem("user")));
+  },[])
+
+  console.log(userInLocal);
+
   return (
     <>
-             {" "}
-      <div className="total-container">
-        <div className="content">
-                  <img className='img-profile' src={profilePhoto} alt="imagen de usuario" />       {" "}
+      <Navbar />
+      <div className="profile">
+        <div className="profile__content">
+          <img className='img-profile' src={userInLocal.imgAvatar} alt="imagen de usuario" />
+          <h4>{userInLocal.name}</h4>
+          <h5>{userInLocal.surname}</h5>
+          <p><span>Email: </span> {userInLocal.email}</p>
+          <p><span>Teléfono: </span> {userInLocal.telephone}</p>
+          <p><span>Dirección: </span> {userInLocal.street}, {userInLocal.pc}</p>
         </div>
-               {" "}
-        <div className='user-data-container'>
-                      <img className='data-ico' src={profileIcono} alt="icono" />           {" "}
-          <h2>Mi perfil</h2>
-                      <img className='adelante-arrow' src={adelante} alt="icono" />       {" "}
+        <div className="logout">
+            <Link to="/user">
+                <span className="logout__back--button">
+                    <button>Cerrar Sesión</button>
+                </span>
+            </Link>
         </div>
-               {" "}
-        <div className='user-data-container'>
-                      <img className='data-ico' src={localizacion} alt="icono" />           {" "}
-          <h2>Direcciones</h2>
-                      <img className='adelante-arrow' src={adelante} alt="icono" />       {" "}
-        </div>
-               {" "}
-        <div className='user-data-container'>
-                      <img className='data-ico'src={favorites} alt="icono" />           {" "}
-          <h2>Favoritos</h2>
-                      <img className='adelante-arrow' src={adelante} alt="icono" />       {" "}
-        </div>
-               {" "}
-        <div className='user-data-container'>
-                      <img img className='data-ico' src={notificaciones} alt="icono" />           {" "}
-          <h2>Notificaciones</h2>
-                      <img className='adelante-arrow'src={adelante} alt="icono" />       {" "}
-        </div>
-               {" "}
-        <div className='user-data-container'>
-                      <img className='data-ico' src={mascota} alt="icono" />           {" "}
-          <h2>Estado de Adopcion</h2>
-                      <img className='adelante-arrow' src={adelante} alt="icono" />       {" "}
-        </div>
+        
       </div>
-             {" "}
     </>
   );
 }

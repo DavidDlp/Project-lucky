@@ -16,6 +16,14 @@ export const getAllPets = async () => {
         return console.error(error)
     }
 }
+export const getPetsById = async (id) => {
+    try{
+        const req = await axios.get(PETS_URL +'/'+ id ,headers)
+        return req
+    }catch(error){
+        return console.error(error)
+    }
+}
 
 export const getPetsId = async (id) => {
     try{
