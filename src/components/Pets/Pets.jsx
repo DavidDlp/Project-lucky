@@ -49,6 +49,7 @@ export default function Pets (){
     };
 
     const filterSearch = (parameterSearch) =>{
+        // eslint-disable-next-line array-callback-return
         let resultSearch = finallyPet.filter((element) =>{
             if (element.name.toString().toLowerCase().includes(parameterSearch.toLowerCase())
                 || element.species.toString().toLowerCase().includes(parameterSearch.toLowerCase())
