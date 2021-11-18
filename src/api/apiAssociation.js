@@ -14,15 +14,16 @@ export const getAssociations = async () => {
       headers: headers
   })
   const response = await request.json()
+  console.log("esto es", response)
   return response
 }
 
-export const postAssociations = async (asociations) =>{
+export const postAssociations = async (associations) =>{
   try{
       const req = await fetch(ASSOCIATIONS,{
           method:'POST',
           headers:headers,
-          body: JSON.stringify(asociations)
+          body: JSON.stringify(associations)
       })
       const res = await req.json()
       return res

@@ -7,15 +7,45 @@
   width: 100%;
   align-items: center;
 }
+.title-container-AF {
+  margin-top: 6.4%;
 
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 .title-container-AF p {
   width: 100%;
   font-size: 1.6rem;
+  color: black;
   text-align: center;
   margin-bottom: 4.5vh;
   font-weight: 400;
 }
-
+.progress {
+  width: 89%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4.8vh;
+}
+.progress-bar-AF {
+  display: block;
+  width: 26%;
+  height: 7pt;
+  background-color: $redLight;
+  border-radius: 3.5pt 0 0 3.5pt;
+}
+.remaining-progress-AF {
+  display: block;
+  width: 74.2%;
+  height: 7pt;
+  background-color: $redLight;
+  border-radius: 0 3.5pt 3.5pt 0;
+}
 .form-container-AF {
   display: flex;
   flex-direction: column;
@@ -27,31 +57,22 @@
   color: $ocean;
   font-weight: 600;
   margin-bottom: 8%;
-  margin-top: 6.4%;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 }
 .input-container-AF {
   height: 2.7vh;
-  border-bottom: 2pt solid $blueCloud;
+  border-bottom: 1pt solid $blueCloud;
   margin-bottom: 3.6vh;
-  color: black;
 }
 .input-form-AF {
-  height: 2.7vh;
-  border-bottom: 2pt solid $blueCloud;
-  margin-bottom: 3.6vh;
-  color: black;
+  margin: 0;
+  padding: 0;
+  border: 0;
 
   width: 100%;
   height: 80%;
   font-size: 1.2rem;
   color: $dark;
 }
-
 .terms-container-AF {
   width: 89%;
   display: flex;
@@ -67,28 +88,27 @@
 }
 .terms-container-AF input[type="checkbox"] {
   display: none;
-} 
+}
 .terms-container-AF input[type="checkbox"] + label span {
 	display: inline-block;
 	width: 6.4vw;
 	height: 6.4vw;
 	margin: -1px 4px 0 0;
 	vertical-align: middle;
-	background: url('../../../../assets/imputs/checkbox-empty.svg');
+;
 	background-size: cover;
   cursor: pointer;
   margin-right: 1vh;
 }
 .terms-container-AF input[type="checkbox"]:checked + label span {
-	background: url(../../../../assets//imputs/checkbox-checked.svg);
+
   background-size: cover;
   margin-right: 1vh;
-} 
-
+}
 .btn-continue-AF {
   width: 89%;
   height: 6vh;
-  background-color:$redLight;
+  background-color: $redLight;
   border: 0;
   border-radius: 4pt;
   color: white;
