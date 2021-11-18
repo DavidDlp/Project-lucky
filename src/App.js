@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Pets from "./components/Pets/Pets";
 import PetsDetails from "./components/Pets/Details/Pets-details";
@@ -12,6 +12,8 @@ import Profile from "./components/Profile/Profile";
 import "./styles/app.scss";
 import PreLogin from "./components/Login/PreLogin";
 import Onboarding from "./components/Onboarding/Onboarding";
+import PetsCreate from "./components/Pets/Create/PetsCreate"
+import PetsCrud from "./components/Pets/Create/PetsCrud"
 
 
 
@@ -20,7 +22,7 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <Link to="/user/register">|Register|</Link>
+          {/* <Link to="/user/register">|Register|</Link>
           <Link to="/user/login">|Login|</Link>
           <Link to="/user/logout">|Logout|</Link>
           <Link to="/user">|PreLogin|</Link>
@@ -29,7 +31,9 @@ function App() {
           <Link to="/">|Onboarding|</Link>
           <Link to="/associations">Associations</Link>
           <Link to="/associationscreate">AssociationCreate</Link>
-          <Link to="/associationscreate">AssociationCreate</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/petscrud">petscrud</Link>
+          <Link to="/petscreate">petscreate</Link>*/}
           
        
 
@@ -37,7 +41,7 @@ function App() {
             <Route path="/" element={<Onboarding/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/pets" element={<Pets/>}/>
-            <Route path="/pets/details" element={<PetsDetails/>}/>
+            <Route path="/pets/details/:id" element={<PetsDetails/>}/>
             <Route path="/user" element={<PreLogin/>}/>
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
@@ -45,6 +49,8 @@ function App() {
             <Route path="/associations" element={<Association />} />
             <Route path="/associationscreate" element={<AssociationCreate />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/petscrud" element={<PetsCrud/>} />
+            <Route path="/petscreate" element={<PetsCreate />} />
     
          
           </Routes>

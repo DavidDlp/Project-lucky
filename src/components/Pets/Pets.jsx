@@ -52,7 +52,7 @@ export default function Pets (){
         let resultSearch = finallyPet.filter((element) =>{
             if (element.name.toString().toLowerCase().includes(parameterSearch.toLowerCase())
                 || element.species.toString().toLowerCase().includes(parameterSearch.toLowerCase())
-                || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+                // || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
             ){
                 return element;
             }
@@ -65,6 +65,8 @@ export default function Pets (){
         }, []);
 
     return(
+        <>
+        {/* <Navbar /> */}
         <div className="Pets-main" >
             <div>
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
@@ -91,7 +93,7 @@ export default function Pets (){
                 {pets.map(item => {
                         return (
                             <div key={JSON.stringify(item)}>
-                                <Link to ="/pets/details/?id={item._id}">
+                                <Link to ={{ pathname: "/pets/details/"+item._id}}>
                                     <img src={item.imgPets} alt="pets"/>
                                 </Link>
                                 <div>
@@ -102,9 +104,8 @@ export default function Pets (){
                         )
                     })}
             </div>
-                                
-            
-
-        </div>
+        </div>        
+        
+        </>
     )
 }

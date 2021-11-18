@@ -27,8 +27,8 @@ const Home = () => {
                     slidesPerView={1}
                     pagination={true}
                     spaceBetween={30}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
                     effect={'cube'}
                     grabCursor={true}
                     cubeEffect={{
