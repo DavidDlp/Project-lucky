@@ -14,11 +14,14 @@ const Register = () => {
 
 
   const submit = (data) => {
-    //console.table(data)
+    // console.table(data)
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("surname", data.surname);
     formData.append("telephone", data.telephone);
+    formData.append("street", data.street);
+    formData.append("city", data.city);
+    formData.append("pc", data.pc);
     formData.append("email", data.email);
     formData.append("password", data.password);
     formData.append("imgAvatar", data.imgAvatar[0]);
@@ -50,7 +53,7 @@ const Register = () => {
       <form className="cont-form-reg" onSubmit={handleSubmit(submit)}>
         <div className="input-box">
           <input
-            placeholder="¿Cuál es tu nombre?"
+            placeholder="Nombre"
             type="text"
             name="name"
             {...register("name")}
@@ -59,7 +62,7 @@ const Register = () => {
 
         <div className="input-box">
           <input
-            placeholder="¿Y el apellido?"
+            placeholder="Apellidos"
             type="text"
             name="surname"
             {...register("surname")}
@@ -68,7 +71,7 @@ const Register = () => {
 
         <div className="input-box">
           <input
-            placeholder="El DNI aqui"
+            placeholder="DNI"
             type="text"
             name="DNI"
             {...register("DNI")}
@@ -104,7 +107,7 @@ const Register = () => {
 
         <div className="input-box">
           <input
-            placeholder="Tu número de contacto"
+            placeholder="Teléfono"
             type="text"
             name="telephone"
             {...register("telephone")}
@@ -113,7 +116,7 @@ const Register = () => {
 
         <div className="input-box">
           <input
-            placeholder="Aqui iría el email!"
+            placeholder="Correo electrónico"
             type="text"
             name="email"
             {...register("email")}
@@ -122,7 +125,7 @@ const Register = () => {
 
         <div className="pass-wrapper input-box">
           <input
-            placeholder="Y aqui la contraseña!"
+            placeholder="Password"
             type={"password"}
             name="password"
             {...register("password", {
@@ -140,7 +143,7 @@ const Register = () => {
               name="imgAvatar"
               {...register("imgAvatar")}
             />
-            <p>Tu Avatar!!!</p>
+            <p>Sube tu Avatar</p>
           </label>
         </div>
           <button className="button" type="submit" value="submit">

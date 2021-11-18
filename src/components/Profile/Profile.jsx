@@ -11,7 +11,7 @@ export default function Profile() {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
   },[])
 
-  // console.log(userInLocal);
+  console.log(userInLocal);
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function Profile() {
           <h5>{userInLocal.surname}</h5>
           <p><span>Email: </span> {userInLocal.email}</p>
           <p><span>Teléfono: </span> {userInLocal.telephone}</p>
-          <p><span>Dirección: </span> {userInLocal.street}, {userInLocal.city}</p>
+          <p><span>Dirección: </span> {userInLocal.street}, {userInLocal.pc}</p>
         </div>
         <div className="logout">
             <Link to="/user">

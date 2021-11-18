@@ -21,7 +21,7 @@ const Onboarding = () => {
     
     return (
         <>
-        <Link to="/user/login">
+        <Link to="/user">
             <span className="close-button">
                 <i className="fas fa-times"></i>
             </span>
