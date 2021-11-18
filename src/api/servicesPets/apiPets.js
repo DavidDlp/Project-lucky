@@ -1,15 +1,21 @@
 import axios from 'axios';
 import { PETS_URL } from '../apiRoutes';
+import { addToken } from "../../utils/jwt";
 
-const headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*"
-};
+
+
+const config = {
+    headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+    }
+}
 
 export const getAllPets = async () => {
     try{
-        const req = await axios.get(PETS_URL ,headers)
+        config.headers.Authorization = addToken()
+        const req = await axios.get(PETS_URL,config)
         return req
     }catch(error){
         return console.error(error)
@@ -17,7 +23,8 @@ export const getAllPets = async () => {
 }
 export const getPetsById = async (id) => {
     try{
-        const req = await axios.get(PETS_URL +'/'+ id ,headers)
+        config.headers.Authorization = addToken()
+        const req = await axios.get(PETS_URL +'/'+ id,config)
         return req
     }catch(error){
         return console.error(error)
