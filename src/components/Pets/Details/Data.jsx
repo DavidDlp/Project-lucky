@@ -64,9 +64,7 @@ const PetData = ({pet}) => {
             <div className="detailPet__Data--personality">
                 <h3>Personalidad</h3>
                 <div className="personality__tags">
-                    {
-                    //Validamos antes que exista el pet para hacer el map
-                    pet.name && pet.personality.map((item) => {
+                    {pet.name && pet.personality.map((item) => {
                             return (
                                 <div key={JSON.stringify(item)}>
                                     <p>{item}</p>

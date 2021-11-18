@@ -81,8 +81,7 @@ export default function Pets() {
             <div className="pets" >
                 <div className="pets__search">
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
-                    <img src={search} alt="seach" />
-
+                    <img src={search} alt="search" />
                 </div>
                 {/* <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
