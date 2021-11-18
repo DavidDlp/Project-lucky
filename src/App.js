@@ -12,6 +12,8 @@ import Profile from "./components/Profile/Profile";
 import "./styles/app.scss";
 import PreLogin from "./components/Login/PreLogin";
 import Onboarding from "./components/Onboarding/Onboarding";
+import PetsCreate from "./components/Pets/Create/PetsCreate"
+import PetsCrud from "./components/Pets/Create/PetsCrud"
 
 
 
@@ -29,7 +31,9 @@ function App() {
           <Link to="/">|Onboarding|</Link>
           <Link to="/associations">Associations</Link>
           <Link to="/associationscreate">AssociationCreate</Link>
-          <Link to="/associationscreate">AssociationCreate</Link> */}
+          <Link to="/profile">Profile</Link>
+          <Link to="/petscrud">petscrud</Link>
+          <Link to="/petscreate">petscreate</Link>*/}
           
        
 
@@ -45,6 +49,8 @@ function App() {
             <Route path="/associations" element={<Association />} />
             <Route path="/associationscreate" element={<AssociationCreate />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/petscrud" element={<PetsCrud/>} />
+            <Route path="/petscreate" element={<PetsCreate />} />
     
          
           </Routes>
