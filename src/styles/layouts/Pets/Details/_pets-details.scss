@@ -38,14 +38,14 @@
             bottom: 2.4rem;
         }
 
-        .swiper-slide{
-            // img{
-            //     width: 102vw;
-            //     height: auto;
-            //     margin-left: -0.4rem;
-            //     z-index: 1; 
-            // }
-        }
+        // .swiper-slide{
+        //     // img{
+        //     //     width: 102vw;
+        //     //     height: auto;
+        //     //     margin-left: -0.4rem;
+        //     //     z-index: 1; 
+        //     // }
+        // }
     }
 
     .detailPet__resume{
@@ -81,6 +81,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: 400;
+            color: $blueDark;
 
             p{
                 margin-block-start: 0em;
@@ -89,9 +93,10 @@
 
             .detail__resume--data--name{
                 font-size: 16px;
-                color: $dark;
+                
                 margin-block-start: 0em;
                 margin-block-end: 0.2em;
+                font-weight: 600;
             }
 
         }

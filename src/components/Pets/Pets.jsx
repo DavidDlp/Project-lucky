@@ -37,7 +37,7 @@ export default function Pets() {
             const result = await getAllPets(); 
             setPets(result.data);
             setFinallyPet(result.data);
-            console.log(result.data);
+            // console.log(result.data);
 
         } catch (error) {
             return console.error(error)
@@ -73,7 +73,7 @@ export default function Pets() {
         getPetsApi();
     }, [])
 
-    console.log(pets);
+    // console.log(pets);
 
     return (
         <>
@@ -106,8 +106,8 @@ export default function Pets() {
                 <div className="pets__response">
                     {pets.map(item => {
                         return (
-                            <div className="pets__response--item">
-                                <div className="pets__response--item--img" key={item}>
+                            <div className="pets__response--item" key={JSON.stringify(item)}>
+                                <div className="pets__response--item--img">
                                     <Link to={{ pathname: "/pets/details/" + item._id }}>
                                         <img src={item.imgPets} alt="pets" />
                                         <div className="pets__response--item--content">

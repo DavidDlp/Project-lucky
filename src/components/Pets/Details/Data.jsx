@@ -2,7 +2,8 @@ import React from 'react';
 import pawIcon from './../../../assets/img/pawIcon.png';
 
 const PetData = ({pet}) => {
-    
+    // Falta funcionalidad, meter como variable de estado
+    console.log(pet);
     return (
         <div className="detailPet__Data">
             <div className="detailPet__Data--attribute">
@@ -63,7 +64,15 @@ const PetData = ({pet}) => {
             <div className="detailPet__Data--personality">
                 <h3>Personalidad</h3>
                 <div className="personality__tags">
-                    <p>{pet.personality}</p>
+                    {
+                    //Validamos antes que exista el pet para hacer el map
+                    pet.name && pet.personality.map((item) => {
+                            return (
+                                <div key={JSON.stringify(item)}>
+                                    <p>{item}</p>
+                                </div>
+                            )
+                        })}
                 </div>
             </div>
             <div className="detailPet__Data--history">

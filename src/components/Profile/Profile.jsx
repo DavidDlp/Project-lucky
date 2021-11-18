@@ -11,7 +11,7 @@ export default function Profile() {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
   },[])
 
-  console.log(userInLocal);
+  // console.log(userInLocal);
 
   return (
     <>
