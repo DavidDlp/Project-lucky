@@ -4,12 +4,12 @@
     align-items: center;
 
     .swiper-container{
-        height: 100vh;
+        height: 85vh;
     }
 
     .swiper-slide{
         text-align: center;
-        margin-top: 10rem;
+        margin-top: 15rem;
     
         h5{
             font-size: 25px;
@@ -26,9 +26,6 @@
     }
 
     .swiper-pagination{
-
-        margin-bottom: 1.5rem;
-    
         .swiper-pagination-bullet{
             background-color: #FFF;
             border: 1px solid $redDark;
@@ -51,4 +48,5 @@
     top: 2.3rem;
     right: 2.3rem;
     color: #0E363D;
+    z-index: 99999999;
 }

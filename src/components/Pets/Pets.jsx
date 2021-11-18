@@ -19,8 +19,9 @@ import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
 import add from './../../assets/img/mS.png';
 import filtros from './../../assets/img/filtros.png';
+import Navbar from "../Navbar/Navbar";
 
-  
+
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
@@ -32,7 +33,7 @@ export default function Pets (){
         try{
             const result = await getAllPets();
             setPets(result.data)
-            console.log(result.data)
+            // console.log(result.data)
 
         }catch(error){
             return console.error(error)
@@ -44,6 +45,8 @@ export default function Pets (){
         }, [])
 
     return(
+        <>
+        <Navbar />
         <div className="Pets-main" >
             <div>
                 <input className="input-btn" type="text" placeholder="Buscar" onChange={(e) =>{ }}/>
@@ -70,8 +73,7 @@ export default function Pets (){
                 {pets.map(item => {
                         return (
                             <div key={JSON.stringify(item)}>
-                                <Link to ={{ pathname: "/pets/details",
-                                data : item }}>
+                                <Link to ={{ pathname: "/pets/details/"+item._id}}>
                                     <img src={item.imgPets} alt="pets"/>
                                 </Link>
                                 <div>
@@ -82,9 +84,8 @@ export default function Pets (){
                         )
                     })}
             </div>
-                                
-            
-
-        </div>
+        </div>        
+        
+        </>
     )
 }

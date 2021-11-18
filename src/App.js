@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Pets from "./components/Pets/Pets";
 import PetsDetails from "./components/Pets/Details/Pets-details";
@@ -20,7 +20,7 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <Link to="/user/register">|Register|</Link>
+          {/* <Link to="/user/register">|Register|</Link>
           <Link to="/user/login">|Login|</Link>
           <Link to="/user/logout">|Logout|</Link>
           <Link to="/user">|PreLogin|</Link>
@@ -29,7 +29,7 @@ function App() {
           <Link to="/">|Onboarding|</Link>
           <Link to="/associations">Associations</Link>
           <Link to="/associationscreate">AssociationCreate</Link>
-          <Link to="/associationscreate">AssociationCreate</Link>
+          <Link to="/associationscreate">AssociationCreate</Link> */}
           
        
 
@@ -37,7 +37,7 @@ function App() {
             <Route path="/" element={<Onboarding/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/pets" element={<Pets/>}/>
-            <Route path="/pets/details" element={<PetsDetails/>}/>
+            <Route path="/pets/details/:id" element={<PetsDetails/>}/>
             <Route path="/user" element={<PreLogin/>}/>
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
