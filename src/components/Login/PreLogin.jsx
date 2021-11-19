@@ -7,7 +7,7 @@ export default function PreLogin() {
     if (e === "toUserLogin") {
       navigate("/user/login");
     } else if (e === "toAssosiationLogin") {
-      navigate("/user/register");
+      navigate("/associations/login");
     } else if (e === "toGuestHome") {
       navigate("/home");
     }

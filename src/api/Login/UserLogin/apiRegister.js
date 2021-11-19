@@ -1,5 +1,5 @@
 import axios from "axios";
-import { REGISTER } from "../apiRoutes";
+import { REGISTER } from "../../apiRoutes";
 
 const config = {
   headers: {

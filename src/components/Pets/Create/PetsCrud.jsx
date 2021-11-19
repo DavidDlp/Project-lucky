@@ -4,7 +4,7 @@ import { getPets, deletePets } from "../../../api/apiPets";
 const PetsCrud = () => {
   const [pets, setPets] = useState([]);
 
-  const getPetBD = async () => {
+const getPetBD = async () => {
     try {
       const data = await getPets();
       setPets(data);
@@ -13,7 +13,7 @@ const PetsCrud = () => {
       console.log(error);
     }
   };
-  const delPets = async (id) => {
+const delPets = async (id) => {
     try {
       await deletePets(id);
       const newElements = pets.filter((item) => item._id !== id);

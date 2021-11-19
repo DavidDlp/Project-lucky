@@ -38,14 +38,14 @@ const PetsCreate = () => {
   return (
     <div className="component-form">
       <div className="form-container-AF">
-        <h3 className="title-container-AF">REGISTRO</h3>           {" "}
+        <h3 className="title-container-AF">REGISTRO</h3>           
         <form onSubmit={submitForm}>
-                         {" "}
+                         
           <fieldset>
-                               {" "}
+                               
             <label>
-                                      <p>Nombre de la Mascota</p>
-                                     {" "}
+                                      <p>Nombre de la Mascota</p>               
+                     
               <input
                 type="text"
                 className="input-form-AF"
@@ -56,8 +56,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Imagen de la Mascota</p>
-                                     {" "}
+                                      <p>Imagen de la Mascota</p>               
+                     
               <input
                 type="text"
                 className="input-form-AF"
@@ -67,10 +67,9 @@ const PetsCreate = () => {
               />
                                
             </label>
-         
             <label>
-                                      <p>Especie de la Mascota</p>
-                                     {" "}
+                                      <p>Especie de la Mascota</p>             
+                       
               <input
                 type="text"
                 className="input-form-AF"
@@ -81,8 +80,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Genero de la Mascota</p>
-                                     {" "}
+                                      <p>Genero de la Mascota</p>               
+                     
               <input
                 type="text"
                 className="input-form-AF"
@@ -93,8 +92,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Cumpleaños de la Mascota</p>
-                                     {" "}
+                                      <p>Cumpleaños de la Mascota</p>           
+                         
               <input
                 type="text"
                 className="input-form-AF"
@@ -105,8 +104,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Tamaño de la Mascota</p>
-                                     {" "}
+                                      <p>Tamaño de la Mascota</p>               
+                     
               <input
                 type="text"
                 className="input-form-AF"
@@ -117,8 +116,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Personalidad de la Mascota</p>
-                                     {" "}
+                                      <p>Personalidad de la Mascota</p>         
+                           
               <input
                 type="text"
                 className="input-form-AF"
@@ -129,8 +128,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Historia de la Mascota</p>
-                                     {" "}
+                                      <p>Historia de la Mascota</p>             
+                       
               <input
                 type="text"
                 className="input-form-AF"
@@ -141,8 +140,8 @@ const PetsCreate = () => {
                                
             </label>
             <label>
-                                      <p>Asociación de la Mascota</p>
-                                     {" "}
+                                      <p>Asociación de la Mascota</p>           
+                         
               <input
                 type="text"
                 className="input-form-AF"
@@ -152,9 +151,7 @@ const PetsCreate = () => {
               />
                                
             </label>
-          
-                                    
-                                   
+                                                   
             <div className="terms-container-AF">
               <p>
                 <input id="checkbox-AF" type="checkbox" />
@@ -163,20 +160,20 @@ const PetsCreate = () => {
                 </label>
               </p>
             </div>
-                               {" "}
+                               
             <div>
-                                     {" "}
+                                     
               <button className="btn-continue-AF" type="submit">
                 Guardar Mascota
               </button>
-                                 {" "}
+                                 
             </div>
-                           {" "}
+                           
           </fieldset>
-                     {" "}
+                     
         </form>
       </div>
-           {" "}
+           
     </div>
   );
 };
