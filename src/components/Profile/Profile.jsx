@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 import Logout from "../Login/Logout";
 import Navbar from "../Navbar/Navbar";
 
