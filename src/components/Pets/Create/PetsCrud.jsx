@@ -1,38 +1,50 @@
 import React, { useEffect, useState } from "react";
-import { getPets, deletePets } from "../../../api/apiPets";
+import { getAssocionationById } from "../../../api/apiAssociation";
+// import {deletePets } from "../../../api/apiPets";
 
 const PetsCrud = () => {
-  const [pets, setPets] = useState([]);
+  const [idAssociation, setIdAssociation] = useState({});
+  const [associations, setAssociations] = useState([]);
+  const [flag, setFlag] = useState(false)
 
-const getPetBD = async () => {
-    try {
-      const data = await getPets();
-      setPets(data);
-  console.log("esto es", pets)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-const delPets = async (id) => {
-    try {
-      await deletePets(id);
-      const newElements = pets.filter((item) => item._id !== id);
-      console.log("esto es el ", newElements);
-      setPets(newElements);
-    } catch (error) {}
-  };
+//Fernando y David.
+const getAssociationbyIdBd = async () =>{
+  try{
+    // console.log(idAssociation._id)
+    const data = await getAssocionationById(idAssociation._id)
+    setAssociations(data);
+    console.log(data)
+    
+  }catch(error){
+    console.error(error);
+  }
+}
 
-  useEffect(() => {
-    getPetBD();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+//Anays pet crud.
+// const delPets = async (id) => {
+//     try {
+//       await deletePets(id);
+//       const newElements = pets.filter((item) => item._id !== id);
+//       console.log("esto es el ", newElements);
+//       setPets(newElements);
+//     } catch (error) {}
+//   };
+
+useEffect(() => {
+  setIdAssociation(JSON.parse(localStorage.getItem("association")))
+  setFlag(true)
+  if(idAssociation._id){
+    getAssociationbyIdBd()
+  }
+},[flag])  
+// console.log(idAssociation)
 
   return (
     <>
-         <h1>Mascotas</h1>                
+         <h1>Hola protectora</h1>                
       <div className="content">
               
-        {pets.map((pet) => {
+        {associations.pets.map((pet) => {
           return (
             <div key={JSON.stringify(pet)}>
               <p>Nombre: {pet.name}</p>                         
@@ -44,7 +56,7 @@ const delPets = async (id) => {
               <p>Tamaño: {pet.size}</p>                 
               <p>Personalidad: {pet.personality}</p>                         
               <p>Historia: {pet.history}</p>                           
-              <button onClick={() => delPets(pet._id)}>Borrar</button>         
+              {/* <button onClick={() => delPets(pet._id)}>Borrar</button>          */}
             </div>
           );
         })}
