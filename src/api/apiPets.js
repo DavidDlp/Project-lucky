@@ -10,15 +10,15 @@ const headers = {
 };
 
 
-export const getPets = async () => {
-  const request = await fetch(PETS_URL, {
-      method:'GET',
-      headers: headers
-  })
-  const response = await request.json()
-  console.log("esto es", response)
-  return response
-}
+// export const getPets = async () => {
+//   const request = await fetch(PETS_URL, {
+//       method:'GET',
+//       headers: headers
+//   })
+//   const response = await request.json()
+//   console.log("esto es", response)
+//   return response
+// }
 
 export const postPets = async (pets) =>{
   try{
