@@ -2,7 +2,7 @@ import React from 'react';
 import pawIcon from './../../../assets/img/pawIcon.png';
 
 const PetData = ({pet}) => {
-    console.log(pet);
+    // console.log(pet);
     return (
         <div className="detailPet__Data">
             <div className="detailPet__Data--attribute">

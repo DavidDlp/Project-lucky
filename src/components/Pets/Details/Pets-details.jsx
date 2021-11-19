@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link  } from 'react-router-dom';
 // import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { EffectFade, Pagination } from 'swiper';
+// import SwiperCore, { EffectFade, Pagination } from 'swiper';
 
 import { getPetsById } from "./../../../api/servicesPets/apiPets";
 import PetData from './Data';
@@ -12,7 +12,7 @@ import PetHealth from './Health';
 // import favIcon from './../../../assets/img/favIcon.png';
 // import genreIcon from './../../../assets/img/genreIcon.png';
 
-SwiperCore.use([EffectFade, Pagination]);
+// SwiperCore.use([EffectFade, Pagination]);
 
 const PetsDetails = () => {
     

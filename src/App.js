@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Loading from "./components/Loading/Loading";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import Onboarding from "./components/Onboarding/Onboarding";
@@ -25,49 +25,44 @@ import AssociationLogout from "./components/Association/Login/AssociationsLogout
 
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 200)
+  }, [])
+
+  
   return (
     <>
       <div className="App">
+        {
+        loading ? <Loading loading={loading}/>
+        :
         
         <BrowserRouter>
-          {/* <Link to="/user/register">|Register|</Link>
-          <Link to="/user/login">|Login|</Link>
-          <Link to="/user/logout">|Logout|</Link>
-          <Link to="/user">|PreLogin|</Link>
-          <Link to="/pets">|Pets|</Link>
-          <Link to="/home">|Home|</Link>
-          <Link to="/">|Onboarding|</Link>
-          <Link to="/associations">Associations</Link>
-          <Link to="/associationscreate">AssociationCreate</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/petscrud">petscrud</Link>
-          <Link to="/petscreate">petscreate</Link>*/}
-          
-       
-
           <Routes>
             <Route path="/" element={<Onboarding/>}/>
             <Route path="/home" element={<Home />}/>
+            <Route path="/pets" element={<Pets/>}/>
+            <Route path="/pets/details/:id" element={<PetsDetails/>}/>
             <Route path="/profile" element={<Profile />} />
-
             <Route path="/user" element={<PreLogin/>}/>
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
-
             <Route path="/associations" element={<Association />} />
             <Route path="/associations/login" element={<AssociationLogin />} />
             <Route path="/associations/register" element={<AssociationRegister />} />
             <Route path="/associations/logout" element={<AssociationLogout />} />
-
             <Route path="/associationscreate" element={<AssociationCreate />} />
-
-            <Route path="/pets" element={<Pets/>}/>
             <Route path="/petscrud" element={<PetsCrud/>} />
             <Route path="/petscreate" element={<PetsCreate />} />
-            <Route path="/pets/details/:id" element={<PetsDetails/>}/>         
           </Routes>
         </BrowserRouter>
+        }
       </div>
     </>
   );
