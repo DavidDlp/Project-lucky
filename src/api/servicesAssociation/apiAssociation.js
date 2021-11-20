@@ -19,6 +19,20 @@ export const getAssociations = async () => {
   return response
 }
 
+export const getAssocionationById = async (id) =>{
+  try{
+    const request = await fetch(ASSOCIATIONS + '/' + id, {
+      method:'GET',
+      headers: headers
+    })
+  const res = await request.json()
+      return res
+  }catch(error){
+    console.error(error)
+  }
+}
+
+
 export const postAssociations = async (associations) =>{
   try{
       const req = await fetch(ASSOCIATIONS,{

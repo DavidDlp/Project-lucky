@@ -37,7 +37,8 @@ const PetsCrud = () => {
     <>
     {loading}
       <div className="petsCrudContent">
-        <h2>Hola Protectora</h2>
+        
+        <h2>Hola Protectora</h2>        
         {pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
