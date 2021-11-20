@@ -2,17 +2,6 @@ import React from "react";
 import pawIcon from "./../../../assets/img/pawIcon.png";
 
 const PetHealth = ({pet}) => {
-
-
-    let vaccinated = pet.vaccinated ? 'Sí' : 'No';
-    let dewormed = pet.dewormed ? 'Sí' : 'No';
-    let healthy = pet.healthy ? 'Sí' : 'No';
-    let sterilized = pet.sterilized ? 'Sí' : 'No';
-    let identified = pet.identified ? 'Sí' : 'No';
-    let microchip = pet.microchip ? 'Sí' : 'No';
-
-    console.log(vaccinated);
-    // let other = pet.other ? 'Sí' : 'No';
     
     return (
         <div className="detailPet__Health">
@@ -24,7 +13,7 @@ const PetHealth = ({pet}) => {
                     <p>Vacunado</p>
                 </div>
                 <div className="attribute__res">
-                    <p>{vaccinated}</p>
+                    <p>{pet.record.vaccinated ? 'Sí' : 'No'}</p>
                 </div>
             </div>
             <div className="detailPet__Health--attribute">
@@ -35,7 +24,7 @@ const PetHealth = ({pet}) => {
                     <p>Desparasitado</p>
                 </div>
                 <div className="attribute__res">
-                    <p>{dewormed}</p>
+                    <p>{pet.record.dewormed ? 'Sí' : 'No'}</p>
                 </div>
             </div>
             <div className="detailPet__Health--attribute">
@@ -46,7 +35,7 @@ const PetHealth = ({pet}) => {
                     <p>Sano</p>
                 </div>
                 <div className="attribute__res">
-                    <p>{healthy}</p>
+                    <p>{pet.record.healthy ? 'Sí' : 'No'}</p>
                 </div>
             </div>
             <div className="detailPet__Health--attribute">
@@ -57,7 +46,7 @@ const PetHealth = ({pet}) => {
                     <p>Esterilizado</p>
                 </div>
                 <div className="attribute__res">
-                    <p>{sterilized}</p>
+                    <p>{pet.record.sterilized ? 'Sí' : 'No'}</p>
                 </div>
             </div>
             <div className="detailPet__Health--attribute">
@@ -68,7 +57,7 @@ const PetHealth = ({pet}) => {
                     <p>Identificado</p>
                 </div>
                 <div className="attribute__res">
-                    <p>{identified}</p>
+                    <p>{pet.record.identified ? 'Sí' : 'No'}</p>
                 </div>
             </div>
             <div className="detailPet__Health--attribute">
@@ -79,7 +68,7 @@ const PetHealth = ({pet}) => {
                     <p>Microchip</p>
                 </div>
                 <div className="attribute__res">
-                     {microchip}
+                     <p>{pet.record.microchip ? 'Sí' : 'No'}</p>
                 </div>
             </div>
         </div>

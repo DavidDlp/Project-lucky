@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAssociations, deleteAssociations } from "../../api/apiAssociation";
+import { getAssociations, deleteAssociations } from "../../api/servicesAssociation/apiAssociation";
 
 const Association = () => {
   const [associations, setAssociatios] = useState([]);

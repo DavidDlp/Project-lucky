@@ -11,9 +11,7 @@ import info1 from './../../assets/img/info1.png';
 import info2 from './../../assets/img/info2.png';
 import Navbar from '../Navbar/Navbar';
 
-
 SwiperCore.use([EffectCube, Pagination]);
-
 
 const Home = () => {
       //Para consumir los datos hay que utilizar useEffect con JSON.parse

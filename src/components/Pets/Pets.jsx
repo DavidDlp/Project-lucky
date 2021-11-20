@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllPets } from "../../api/servicesPets/apiPets";
+import { getAllPets } from "../../api/servicesPets/apiPetsAxios";
 //IMAGES
 // import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';
@@ -19,13 +19,10 @@ import 'swiper/components/pagination/pagination.scss';
 import SwiperCore, {
     Pagination
 } from 'swiper';
-
-
-
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-export default function Pets() {
+export default function Pets (){
 
     const [pets, setPets] = useState([])
     const [finallyPet, setFinallyPet] = useState([])
@@ -37,7 +34,7 @@ export default function Pets() {
             const result = await getAllPets(); 
             setPets(result.data);
             setFinallyPet(result.data);
-            console.log(result.data);
+            // console.log(result.data);
 
         } catch (error) {
             return console.error(error)
@@ -57,7 +54,7 @@ export default function Pets() {
         let resultSearch = finallyPet.filter((element) =>{
             if (element.name.toString().toLowerCase().includes(parameterSearch.toLowerCase())
                 || element.species.toString().toLowerCase().includes(parameterSearch.toLowerCase())
-                // || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
+                || element.city.toString().toLowerCase().includes(parameterSearch.toLowerCase())
             ){
                 return element;
             }
@@ -69,11 +66,8 @@ export default function Pets() {
             getPetsApi();
         }, []);
 
-    useEffect(() => {
-        getPetsApi();
-    }, [])
 
-    console.log(pets);
+    // console.log(pets);
 
     return (
         <>
@@ -81,8 +75,7 @@ export default function Pets() {
             <div className="pets" >
                 <div className="pets__search">
                 <input value={searchPet} className="input-btn" type="text" placeholder="Buscar nombre" onChange={handleChange}/>
-                    <img src={search} alt="seach" />
-
+                    <img src={search} alt="search" />
                 </div>
                 {/* <div className= "favorite-pets" >
                 <h3>Mis mascotas <img src={add} alt="add"/></h3>
@@ -106,8 +99,8 @@ export default function Pets() {
                 <div className="pets__response">
                     {pets.map(item => {
                         return (
-                            <div className="pets__response--item">
-                                <div className="pets__response--item--img" key={JSON.stringify(item)}>
+                            <div className="pets__response--item" key={JSON.stringify(item)}>
+                                <div className="pets__response--item--img">
                                     <Link to={{ pathname: "/pets/details/" + item._id }}>
                                         <img src={item.imgPets} alt="pets" />
                                         <div className="pets__response--item--content">

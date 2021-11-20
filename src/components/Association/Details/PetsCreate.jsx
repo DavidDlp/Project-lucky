@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logoReg from "../../../assets/img/logoRegister.png"
-import { postPets } from "../../../api/apiPets";
+
+import { postPets } from "../../../api/servicesPets/apiPetsFetch";
 import { useNavigate } from "react-router-dom";
 
 const INIT = {
@@ -49,6 +49,16 @@ const PetsCreate = () => {
         <form className="cont-form-reg" onSubmit={submitForm}>
                                        
         <div className="input-box">                                          
+    <div className="component-form">
+      <div className="form-container-AF">
+        <h3 className="title-container-AF">REGISTRO</h3>           
+        <form onSubmit={submitForm}>
+                         
+          <fieldset>
+                               
+            <label>
+                                      <p>Nombre de la Mascota</p>               
+                     
               <input
                 placeholder="Nombre"
                 type="text"
@@ -59,6 +69,12 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+              />
+                               
+            </label>
+            <label>
+                                      <p>Imagen de la Mascota</p>               
+                     
               <input
                 placeholder="Imagen"
                 type="text"
@@ -69,6 +85,12 @@ const PetsCreate = () => {
             </div>
          
             <div className="input-box">                                          
+              />
+                               
+            </label>
+            <label>
+                                      <p>Especie de la Mascota</p>             
+                       
               <input
                 placeholder="Especie"
                 type="text"
@@ -80,6 +102,10 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+            </label>
+            <label>
+                                      <p>Genero de la Mascota</p>               
+                     
               <input
                 placeholder="Genero"
                 type="text"
@@ -91,6 +117,10 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+            </label>
+            <label>
+                                      <p>Cumpleaños de la Mascota</p>           
+                         
               <input
                 placeholder="Cumpleaños"
                 type="text"
@@ -102,6 +132,10 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+            </label>
+            <label>
+                                      <p>Tamaño de la Mascota</p>               
+                     
               <input
                 placeholder="Tamaño"
                 type="text"
@@ -113,6 +147,10 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+            </label>
+            <label>
+                                      <p>Personalidad de la Mascota</p>         
+                           
               <input
                 placeholder="Personalidad"
                 type="text"
@@ -125,6 +163,10 @@ const PetsCreate = () => {
             </div>
 
             <div className="input-box">                                          
+            </label>
+            <label>
+                                      <p>Historia de la Mascota</p>             
+                       
               <input
                 placeholder="Historial"
                 type="text"
@@ -135,6 +177,20 @@ const PetsCreate = () => {
                                
             </div>
                           
+            </label>
+            <label>
+                                      <p>Asociación de la Mascota</p>           
+                         
+              <input
+                type="text"
+                className="input-form-AF"
+                name="association"
+                value={pet.association}
+                onChange={handleInput}
+              />
+                               
+            </label>
+                                                   
             <div className="terms-container-AF">
               <p>
                 <input id="checkbox-AF" type="checkbox" />
@@ -154,6 +210,21 @@ const PetsCreate = () => {
   </div>
           
   
+                               
+            <div>
+                                     
+              <button className="btn-continue-AF" type="submit">
+                Guardar Mascota
+              </button>
+                                 
+            </div>
+                           
+          </fieldset>
+                     
+        </form>
+      </div>
+           
+    </div>
   );
 };
 

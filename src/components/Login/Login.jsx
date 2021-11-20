@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { loginUser } from "../../api/Login/apiLogin";
 import logo from "../../assets/img/logo.png";
+import { loginUser } from "./../../api/servicesLogin/UserLogin/apiLogin"
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -52,12 +53,10 @@ const Login = () => {
           </>
         )
       }
-
-      
     } catch (error) {
       return console.log(error);
     }
-  };
+  }
   
   return (
     <div className="cont-Login">

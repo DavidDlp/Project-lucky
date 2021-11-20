@@ -6,7 +6,7 @@ import logo from "../../../assets/img/logo.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { loginAssociation } from "../../../api/Login/AssociationLogin/AssociationLogin";
+import { loginAssociation } from "./../../../api/servicesLogin/AssociationLogin/AssociationLogin";
 
 const eye = <FontAwesomeIcon icon={faEye}/>;
 

@@ -3,16 +3,16 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, Link  } from 'react-router-dom';
 // import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { EffectFade, Pagination } from 'swiper';
+// import SwiperCore, { EffectFade, Pagination } from 'swiper';
 
-import { getPetsById } from "./../../../api/servicesPets/apiPets";
+import { getPetsById } from "../../../api/servicesPets/apiPetsAxios";
 import PetData from './Data';
 import PetHealth from './Health';
 
-import favIcon from './../../../assets/img/favIcon.png';
-import genreIcon from './../../../assets/img/genreIcon.png';
+// import favIcon from './../../../assets/img/favIcon.png';
+// import genreIcon from './../../../assets/img/genreIcon.png';
 
-SwiperCore.use([EffectFade, Pagination]);
+// SwiperCore.use([EffectFade, Pagination]);
 
 const PetsDetails = () => {
     
@@ -63,14 +63,14 @@ const PetsDetails = () => {
             </div>
             <div className="detailPet__resume">
                 <div className="detail__resume--genre">
-                    <img src={genreIcon} alt="genre" />
+                    {/* <img src={genreIcon} alt="genre" /> */}
                 </div>
                 <div className="detail__resume--data">
                     <p className="detail__resume--data--name">{pet.name}</p>
                     <p>{pet.city}</p>
                 </div>
                 <div className="detail__resume--button">
-                    <img src={favIcon} alt="" />
+                    {/* <img src={favIcon} alt="" /> */}
                 </div>
             </div>
             <div className="detailPet__Navbar">
@@ -84,7 +84,7 @@ const PetsDetails = () => {
             )}
 
             <div className="detailPet__Data--button">
-                <a href="#">Adoptar</a>
+                {/* <a href="#">Adoptar</a> */}
             </div>
         </div>
     )

@@ -1,15 +1,17 @@
 
-import { ASSOCIATIONS } from "./apiRoutes";
+import { addToken } from "../../utils/jwt";
+import { PETS_URL } from "../apiRoutes";
 
 const headers = {
   "Accept": "application/json",
   "Content-Type": "application/json",
   "Access-Control-Allow-Origin": "*",
+  "Authorization": addToken(),
 };
 
 
-export const getAssociations = async () => {
-  const request = await fetch(ASSOCIATIONS, {
+export const getPets = async () => {
+  const request = await fetch(PETS_URL, {
       method:'GET',
       headers: headers
   })
@@ -18,12 +20,12 @@ export const getAssociations = async () => {
   return response
 }
 
-export const postAssociations = async (associations) =>{
+export const postPets = async (pets) =>{
   try{
-      const req = await fetch(ASSOCIATIONS,{
+      const req = await fetch(PETS_URL,{
           method:'POST',
           headers:headers,
-          body: JSON.stringify(associations)
+          body: JSON.stringify(pets)
       })
       const res = await req.json()
       return res
@@ -32,9 +34,9 @@ export const postAssociations = async (associations) =>{
   }
 } 
 
-export const deleteAssociations = async (id) => {
+export const deletePets = async (id) => {
   try {
-      const req = await fetch(ASSOCIATIONS + '/' + id, {
+      const req = await fetch(PETS_URL + '/' + id, {
           method: 'DELETE',
           headers: headers
       })
