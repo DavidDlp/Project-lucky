@@ -33,9 +33,9 @@ const getAssociationbyIdBd = async () =>{
 useEffect(() => {
   setIdAssociation(JSON.parse(localStorage.getItem("association")))
   setFlag(true)
-  if(idAssociation._id){
-    getAssociationbyIdBd()
-  }
+    if(idAssociation._id){
+      getAssociationbyIdBd()
+    }
 },[flag])  
 // console.log(idAssociation)
 
@@ -44,7 +44,7 @@ useEffect(() => {
          <h1>Hola protectora</h1>                
       <div className="content">
               
-        {associations.pets.map((pet) => {
+        {idAssociation._id && associations.pets.map((pet) => {
           return (
             <div key={JSON.stringify(pet)}>
               <p>Nombre: {pet.name}</p>                         
