@@ -30,15 +30,23 @@ const Association = () => {
          <h1>Asociaciones</h1>                
       <div className="content">
             
-        {associations.map((associations) => {
+        {associations.map((association) => {
           return (
-            <div key={JSON.stringify(associations)}>
-                            <p>Nombre: {associations.name}</p>                 
-                      <p>Email: {associations.email}</p>                 {" "}
-              <p>Telefono: {associations.phone}</p>                         {" "}
-              <p>Dirección: {associations.address}</p>                         
-                <p>Ciudad: {associations.city}</p> 
-              <button onClick={() => delAssociation(associations._id)}>
+            <div key={JSON.stringify(association)}>
+                    <p>Nombre: {association.name}</p>                 
+                    <p>Email: {association.email}</p>                 
+                    <p>Telefono: {association.phone}</p>                       
+                    <p>Dirección: {association.address}</p>                         
+                     <p>Ciudad: {association.city}</p> 
+                {association.pets.map((pet) => {
+                  return(
+                    <div key={JSON.stringify(pet)}>
+                    <p>{pet.name}</p>
+                    </div>
+                  )
+
+                })}
+              <button onClick={() => delAssociation(association._id)}>
                 Borrar
               </button>
                        

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import logoReg from "../../../assets/img/logoRegister.png"
 import { postPets } from "../../../api/apiPets";
 import { useNavigate } from "react-router-dom";
 
@@ -36,125 +36,105 @@ const PetsCreate = () => {
   };
 
   return (
-    <div className="component-form">
-      <div className="form-container-AF">
-        <h3 className="title-container-AF">REGISTRO</h3>           {" "}
-        <form onSubmit={submitForm}>
-                         {" "}
-          <fieldset>
-                               {" "}
-            <label>
-                                      <p>Nombre de la Mascota</p>
-                                     {" "}
+    <div className="cont-register">
+      
+      <div className="header">
+        <p>¡Registra tu Mascota!</p>
+      </div>    
+
+       <div className="logo">
+        <img src={logoReg} alt="logo:Animales"/>
+      </div>    
+            
+        <form className="cont-form-reg" onSubmit={submitForm}>
+                                       
+        <div className="input-box">                                          
               <input
+                placeholder="Nombre"
                 type="text"
-                className="input-form-AF"
                 name="name"
                 value={pet.name}
                 onChange={handleInput}
-              />
-                               
-            </label>
-            <label>
-                                      <p>Imagen de la Mascota</p>
-                                     {" "}
+              />                
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Imagen"
                 type="text"
-                className="input-form-AF"
                 name="imgpets"
                 value={pet.imgpets}
                 onChange={handleInput}
-              />
-                               
-            </label>
+              />               
+            </div>
          
-            <label>
-                                      <p>Especie de la Mascota</p>
-                                     {" "}
+            <div className="input-box">                                          
               <input
+                placeholder="Especie"
                 type="text"
-                className="input-form-AF"
                 name="species"
                 value={pet.species}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Genero de la Mascota</p>
-                                     {" "}
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Genero"
                 type="text"
-                className="input-form-AF"
                 name="gender"
                 value={pet.gender}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Cumpleaños de la Mascota</p>
-                                     {" "}
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Cumpleaños"
                 type="text"
-                className="input-form-AF"
                 name="birthday"
                 value={pet.birthday}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Tamaño de la Mascota</p>
-                                     {" "}
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Tamaño"
                 type="text"
-                className="input-form-AF"
                 name="size"
                 value={pet.size}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Personalidad de la Mascota</p>
-                                     {" "}
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Personalidad"
                 type="text"
-                className="input-form-AF"
+               
                 name="personality"
                 value={pet.personality}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Historia de la Mascota</p>
-                                     {" "}
+            </div>
+
+            <div className="input-box">                                          
               <input
+                placeholder="Historial"
                 type="text"
-                className="input-form-AF"
                 name="histoty"
                 value={pet.history}
                 onChange={handleInput}
               />
                                
-            </label>
-            <label>
-                                      <p>Asociación de la Mascota</p>
-                                     {" "}
-              <input
-                type="text"
-                className="input-form-AF"
-                name="association"
-                value={pet.association}
-                onChange={handleInput}
-              />
-                               
-            </label>
-          
-                                    
-                                   
+            </div>
+                          
             <div className="terms-container-AF">
               <p>
                 <input id="checkbox-AF" type="checkbox" />
@@ -163,21 +143,17 @@ const PetsCreate = () => {
                 </label>
               </p>
             </div>
-                               {" "}
-            <div>
-                                     {" "}
-              <button className="btn-continue-AF" type="submit">
-                Guardar Mascota
-              </button>
-                                 {" "}
-            </div>
-                           {" "}
-          </fieldset>
-                     {" "}
+            <button className="button" type="submit" value="submit">
+            <p>Guardar Mascota</p>
+            </button>
+                                 
+          
+              
+                     
         </form>
-      </div>
-           {" "}
-    </div>
+  </div>
+          
+  
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { postAssociations } from "../../../api/apiAssociation";
 import { useNavigate } from "react-router-dom";
-
+import logoReg from "../../../assets/img/logoRegister.png"
 const INIT = {
   name: "",
   email: "",
@@ -36,77 +36,68 @@ const AssociationCreate = () => {
   };
 
   return (
-    <div className="component-form">
-      <div className="form-container-AF">
-        <h3 className="title-container-AF">REGISTRO</h3>           {" "}
-        <form onSubmit={submitForm}>
-                         {" "}
-          <fieldset>
-                               {" "}
-            <label>
-                                      <p>Nombre de la Asociación</p>
-                                     {" "}
+    <div className="cont-register">
+      
+      <div className="header">
+        <p>¡Bienvenido a la pagina de registro!</p>
+      </div>      
+      
+      <div className="logo">
+        <img src={logoReg} alt="logo:Animales"/>
+      </div>
+          
+        <form className="cont-form-reg" onSubmit={submitForm}>
+         
+          <div className="input-box">                                          
               <input
-                type="text"
-                className="input-form-AF"
+                placeholder="Nombre"
                 name="name"
+                type="text"
                 value={association.name}
                 onChange={handleInput}
               />
-                                 {" "}
-            </label>
-                               {" "}
-            <label>
-                                      <p>Email de la Asociación</p>
-                                     {" "}
+              </div>                  
+            
+              <div className="input-box">                    
               <input
+                placeholder="Email"
                 type="text"
-                className="input-form-AF"
                 name="email"
                 value={association.email}
                 onChange={handleInput}
               />
-                                 {" "}
-            </label>
-                               {" "}
-            <label>
-                                      <p>Telefono de la Asociación</p>
-                                     {" "}
+                                 
+              </div> 
+
+              <div className="input-box">    
               <input
+                placeholder="Telefono"
                 type="text"
-                className="input-form-AF"
                 name="phone"
                 value={association.phone}
                 onChange={handleInput}
               />
-                                 {" "}
-            </label>
-                               {" "}
-            <label>
-                                      <p>Dirección de la Asociación</p>
-                                     {" "}
+                                
+             </div> 
+               <div className="input-box">   
               <input
+              placeholder="Dirección"
                 type="text"
-                className="input-form-AF"
                 name="address"
                 value={association.address}
                 onChange={handleInput}
               />
-                                 {" "}
-            </label>
-                               {" "}
-            <label>
-                                      <p>Ciudad</p>
-                                     {" "}
+                 </div> 
+
+                <div className="input-box">  
               <input
+              placeholder="Ciudad"
                 type="text"
-                className="input-form-AF"
                 name="city"
                 value={association.city}
                 onChange={handleInput}
-              />
-                                 {" "}
-            </label>
+              />             
+            </div>
             <div className="terms-container-AF">
               <p>
                 <input id="checkbox-AF" type="checkbox" />
@@ -115,21 +106,21 @@ const AssociationCreate = () => {
                 </label>
               </p>
             </div>
-                               {" "}
+                              
             <div>
-                                     {" "}
-              <button className="btn-continue-AF" type="submit">
-                Guardar Asociación
-              </button>
-                                 {" "}
+                                    
+              <button className="button" type="submit" value="submit">
+            <p>Guardar Asociación</p>
+            </button>
+                                
             </div>
-                           {" "}
-          </fieldset>
-                     {" "}
+                          
+        
+                   
         </form>
       </div>
-           {" "}
-    </div>
+          
+    
   );
 };
 
