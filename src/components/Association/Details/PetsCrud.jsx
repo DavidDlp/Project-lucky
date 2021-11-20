@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getPets, deletePets } from "../../../api/servicesPets/apiPetsFetch";
+import Loading from "../../../components/Loading/Loading";
 
 const PetsCrud = () => {
-
-  const [pets, setPets] = useState([])
+  const [pets, setPets] = useState([]);
+  let [isLoading, setIsLoading] = useState(false);
 
   const getPetBD = async () => {
     try {
@@ -14,7 +15,7 @@ const PetsCrud = () => {
       console.log(error);
     }
   }
-
+  
   const delPets = async (id) => {
     try {
       await deletePets(id);
@@ -24,14 +25,17 @@ const PetsCrud = () => {
     } catch (error) { }
   }
 
-
-  useEffect(() => {    
-    getPetBD();
+  useEffect(() => {
+    setIsLoading(true);//mostramos loading
+    getPetBD().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const loading = (isLoading) ? <><Loading></Loading></> : null;
+
   return (
     <>
+    {loading}
       <div className="petsCrudContent">
         <h2>Hola Protectora</h2>
         {pets.map((pet) => {
