@@ -37,5 +37,3 @@ export const getPetsById = async (id) => {
 //PUT
 
 //DELETE
-
-

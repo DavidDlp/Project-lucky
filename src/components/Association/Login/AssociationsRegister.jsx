@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import logoReg from "../../../assets/img/logoRegister.png";
-import { registerAssociation } from "../../../api/Login/AssociationLogin/AssociationLogin";
+import { registerAssociation } from "./../../../api/servicesLogin/AssociationLogin/AssociationLogin";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 

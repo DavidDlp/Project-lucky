@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllPets } from "../../api/servicesPets/apiPets";
+import { getAllPets } from "../../api/servicesPets/apiPetsAxios";
 //IMAGES
 // import arrow from './../../assets/img/arrow.png';
 import search from './../../assets/img/buscar.png';

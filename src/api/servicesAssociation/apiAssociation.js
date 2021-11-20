@@ -1,5 +1,5 @@
-import { addToken } from "../utils/jwt";
-import { ASSOCIATIONS } from "./apiRoutes";
+import { addToken } from "./../../utils/jwt";
+import { ASSOCIATIONS } from "./../apiRoutes";
 
 const headers = {
   "Accept": "application/json",

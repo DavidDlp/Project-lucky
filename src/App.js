@@ -6,9 +6,9 @@ import Profile from "./components/Profile/Profile";
 import Onboarding from "./components/Onboarding/Onboarding";
 
 import Pets from "./components/Pets/Pets";
-import PetsCreate from "./components/Pets/Create/PetsCreate"
 import PetsDetails from "./components/Pets/Details/Pets-details";
-import PetsCrud from "./components/Pets/Create/PetsCrud"
+import PetsCrud from "./components/Association/Details/PetsCrud";
+import PetsCreate from "./components/Association/Details/PetsCreate"
 
 import PreLogin from "./components/Login/PreLogin";
 import Login from "./components/Login/Login";

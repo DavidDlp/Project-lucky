@@ -1,6 +1,6 @@
 
-import { addToken } from "../utils/jwt";
-import { PETS_URL } from "./apiRoutes";
+import { addToken } from "../../utils/jwt";
+import { PETS_URL } from "../apiRoutes";
 
 const headers = {
   "Accept": "application/json",

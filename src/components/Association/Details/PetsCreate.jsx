@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { postPets } from "../../../api/apiPets";
+import { postPets } from "../../../api/servicesPets/apiPetsFetch";
 import { useNavigate } from "react-router-dom";
 
 const INIT = {

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
-import { loginUser } from "../../api/Login/UserLogin/apiLogin"
+import { loginUser } from "./../../api/servicesLogin/UserLogin/apiLogin"
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

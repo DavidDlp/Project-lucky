@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPets, deletePets } from "../../../api/apiPets";
+import { getPets, deletePets } from "../../../api/servicesPets/apiPetsFetch";
 
 const PetsCrud = () => {
   const [pets, setPets] = useState([]);

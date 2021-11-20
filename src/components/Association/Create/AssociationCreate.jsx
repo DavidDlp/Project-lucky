@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { postAssociations } from "../../../api/apiAssociation";
+import { postAssociations } from "../../../api/servicesAssociation/apiAssociation";
 import { useNavigate } from "react-router-dom";
 
 const INIT = {

@@ -5,7 +5,7 @@ import { useParams, Link  } from 'react-router-dom';
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import SwiperCore, { EffectFade, Pagination } from 'swiper';
 
-import { getPetsById } from "./../../../api/servicesPets/apiPets";
+import { getPetsById } from "../../../api/servicesPets/apiPetsAxios";
 import PetData from './Data';
 import PetHealth from './Health';
 
