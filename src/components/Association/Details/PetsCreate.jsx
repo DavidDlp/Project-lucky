@@ -38,14 +38,11 @@ const PetsCreate = () => {
   return (
     <div className="component-form">
       <div className="form-container-AF">
-        <h3 className="title-container-AF">REGISTRO</h3>           
+        <h3 className="title-container-AF">Registro de animal</h3>
         <form onSubmit={submitForm}>
-                         
           <fieldset>
-                               
             <label>
-                                      <p>Nombre de la Mascota</p>               
-                     
+              <p>Nombre de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -53,11 +50,9 @@ const PetsCreate = () => {
                 value={pet.name}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Imagen de la Mascota</p>               
-                     
+              <p>Imagen de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -65,11 +60,9 @@ const PetsCreate = () => {
                 value={pet.imgpets}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Especie de la Mascota</p>             
-                       
+              <p>Especie de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -77,11 +70,9 @@ const PetsCreate = () => {
                 value={pet.species}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Genero de la Mascota</p>               
-                     
+              <p>Genero de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -89,11 +80,9 @@ const PetsCreate = () => {
                 value={pet.gender}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Cumpleaños de la Mascota</p>           
-                         
+              <p>Cumpleaños de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -101,11 +90,9 @@ const PetsCreate = () => {
                 value={pet.birthday}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Tamaño de la Mascota</p>               
-                     
+              <p>Tamaño de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -113,11 +100,9 @@ const PetsCreate = () => {
                 value={pet.size}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Personalidad de la Mascota</p>         
-                           
+              <p>Personalidad de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -125,11 +110,9 @@ const PetsCreate = () => {
                 value={pet.personality}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Historia de la Mascota</p>             
-                       
+              <p>Historia de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -137,11 +120,9 @@ const PetsCreate = () => {
                 value={pet.history}
                 onChange={handleInput}
               />
-                               
             </label>
             <label>
-                                      <p>Asociación de la Mascota</p>           
-                         
+              <p>Asociación de la Mascota</p>
               <input
                 type="text"
                 className="input-form-AF"
@@ -149,31 +130,23 @@ const PetsCreate = () => {
                 value={pet.association}
                 onChange={handleInput}
               />
-                               
             </label>
-                                                   
-            <div className="terms-container-AF">
+            {/* <div className="terms-container-AF">
               <p>
                 <input id="checkbox-AF" type="checkbox" />
                 <label for="checkbox-AF">
                   <span></span>Acepto los términos y condiciones
                 </label>
               </p>
-            </div>
-                               
-            <div>
-                                     
+            </div> */}
+            <div className="div-btn-continue-AF">
               <button className="btn-continue-AF" type="submit">
                 Guardar Mascota
               </button>
-                                 
             </div>
-                           
           </fieldset>
-                     
         </form>
       </div>
-           
     </div>
   );
 };
