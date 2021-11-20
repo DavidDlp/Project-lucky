@@ -19,13 +19,10 @@ import 'swiper/components/pagination/pagination.scss';
 import SwiperCore, {
     Pagination
 } from 'swiper';
-
-
-
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-export default function Pets() {
+export default function Pets (){
 
     const [pets, setPets] = useState([])
     const [finallyPet, setFinallyPet] = useState([])

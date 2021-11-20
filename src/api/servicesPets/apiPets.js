@@ -12,6 +12,7 @@ const config = {
     }
 }
 
+//GET
 export const getAllPets = async () => {
     try{
         config.headers.Authorization = addToken()
@@ -30,4 +31,11 @@ export const getPetsById = async (id) => {
         return console.error(error)
     }
 }
+
+//POST
+
+//PUT
+
+//DELETE
+
 
