@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { getAssocionationById } from "../../../api/servicesAssociation/apiAssociation";
-import { getPets, deletePets } from "../../../api/servicesPets/apiPetsFetch";
+import { deletePets } from "../../../api/servicesPets/apiPetsFetch";
 import Loading from "../../../components/Loading/Loading";
 
 const PetsCrud = () => {
-  const [association, setAssociation] = useState([]);
+  const [association, setAssociation] = useState({});
   const [pets, setPets] = useState([]);
   let [isLoading, setIsLoading] = useState(false);
 
   const getPetBD = async () => {
     try {
-      const data = await getAssocionationById(association);
+      const data = await getAssocionationById(association._id);
       setAssociation(data);
       console.log(data);
     } catch (error) {
@@ -28,19 +28,20 @@ const PetsCrud = () => {
   }
 
   useEffect(() => {
+    setAssociation(JSON.parse(localStorage.getItem("association")))
     setIsLoading(true);//mostramos loading
     getPetBD().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setPets]);
+  }, []);
 
   const loading = (isLoading) ? <><Loading /></> : null;
-
+  
   return (
     <>
     {loading}
       <div className="petsCrudContent">
-        <h2>Hola Protectora</h2>        
-        {pets.map((pet) => {
+        <h2>Hola {association.name}</h2>        
+        {association.pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
               <div className="petsCrudContent__card--img">
