@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { getAssocionationById } from "../../../api/servicesAssociation/apiAssociation";
 import { getPets, deletePets } from "../../../api/servicesPets/apiPetsFetch";
 import Loading from "../../../components/Loading/Loading";
 
 const PetsCrud = () => {
+  const [association, setAssociation] = useState([]);
   const [pets, setPets] = useState([]);
   let [isLoading, setIsLoading] = useState(false);
 
   const getPetBD = async () => {
     try {
-      const data = await getPets();
-      setPets(data);
-      // console.log("esto es", pets)
+      const data = await getAssocionationById(association);
+      setAssociation(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -29,15 +31,14 @@ const PetsCrud = () => {
     setIsLoading(true);//mostramos loading
     getPetBD().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setPets]);
 
-  const loading = (isLoading) ? <><Loading></Loading></> : null;
+  const loading = (isLoading) ? <><Loading /></> : null;
 
   return (
     <>
     {loading}
       <div className="petsCrudContent">
-        
         <h2>Hola Protectora</h2>        
         {pets.map((pet) => {
           return (
