@@ -21,6 +21,7 @@ import AssociationCreate from "./components/Association/Create/AssociationCreate
 import "./styles/app.scss";
 import AssociationRegister from "./components/Association/Login/AssociationsRegister";
 import AssociationLogout from "./components/Association/Login/AssociationsLogout";
+import ModifyProfileDetail from "./components/Profile/ModifyProfileDetail";
 
 
 
@@ -53,6 +54,8 @@ function App() {
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/logout" element={<Logout />} />
+            <Route path="/user/patch/:id" element={<ModifyProfileDetail />} />
+
             <Route path="/associations" element={<Association />} />
             <Route path="/associations/login" element={<AssociationLogin />} />
             <Route path="/associations/register" element={<AssociationRegister />} />

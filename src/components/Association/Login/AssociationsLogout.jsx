@@ -4,8 +4,9 @@ export default function AssociationLogout() {
  const navigate = useNavigate()
 
   const logout = () => {
-    localStorage.setItem("token", "");
-    localStorage.setItem("association", "");
+    /* localStorage.setItem("token", "");
+    localStorage.setItem("association", ""); */
+    localStorage.clear()
     navigate('/associations/login')
   };
 
