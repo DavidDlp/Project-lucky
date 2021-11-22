@@ -1,11 +1,11 @@
+import React from 'react'
 import { useNavigate } from "react-router";
 
 export default function Logout() {
  const navigate = useNavigate()
 
   const logout = () => {
-    localStorage.setItem("token", "");
-    localStorage.setItem("user", "");
+    localStorage.clear();
     navigate('/user/login')
   };
 

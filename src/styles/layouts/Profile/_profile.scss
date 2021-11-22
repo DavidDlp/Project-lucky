@@ -105,3 +105,21 @@
     }
   }
 }
+
+.logout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $paddingMain;
+
+
+  .logout__back--button button{
+    background-color: $blueDark;
+    font-family: $fontMain;
+    padding: 0.5rem $paddingMain 0.6rem;
+    color: $light;
+    font-size: 16px;
+    border: 0;
+    border-radius: 4px;
+  }
+}
