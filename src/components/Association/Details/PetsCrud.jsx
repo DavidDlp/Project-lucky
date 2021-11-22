@@ -6,13 +6,15 @@ import Loading from "../../../components/Loading/Loading";
 const PetsCrud = () => {
   const [association, setAssociation] = useState({});
   const [pets, setPets] = useState([]);
+  const [flag, setFlag] = useState(false);
   let [isLoading, setIsLoading] = useState(false);
 
   const getPetBD = async () => {
     try {
       const data = await getAssocionationById(association._id);
-      setAssociation(data);
-      console.log(data);
+      if(association.pets && association.pets.length > 0){
+        setAssociation(data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -25,23 +27,25 @@ const PetsCrud = () => {
       // console.log("esto es el ", newElements);
       setPets(newElements);
     } catch (error) { }
-  }
+  } 
 
   useEffect(() => {
     setAssociation(JSON.parse(localStorage.getItem("association")))
     setIsLoading(true);//mostramos loading
     getPetBD().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
+    setFlag(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [flag]);
 
   const loading = (isLoading) ? <><Loading /></> : null;
-  
-  return (
+
+  return(
     <>
     {loading}
+    {association.pets && association.pets.length > 0 ?
       <div className="petsCrudContent">
-        <h2>Hola {association.name}</h2>        
-        {association.pets.map((pet) => {
+        <h2>Hola {association.name}</h2>
+        {association.pets && association.pets.length > 0 && association.pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
               <div className="petsCrudContent__card--img">
@@ -64,9 +68,13 @@ const PetsCrud = () => {
               </div>
             </div>
           );
-        })}
+        }
+        )
+      }
+        
       </div>
-
+      :  null
+    }
     </>
   );
 };
