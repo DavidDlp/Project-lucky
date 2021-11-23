@@ -17,6 +17,20 @@ export const getAssociations = async () => {
   const response = await request.json()
   console.log("esto es", response)
   return response
+};
+
+export const getAssociationsById = async (id) =>{
+  try{
+    const request = await fetch(ASSOCIATIONS + '/' + id, {
+      method: 'GET',
+      headers: headers
+    })
+    const response = await request.json()
+    console.log("esto es", response)
+    return response
+  }catch(error){
+    console.error(error)
+  }
 }
 
 export const postAssociations = async (associations) =>{
