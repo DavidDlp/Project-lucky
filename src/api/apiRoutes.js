@@ -1,6 +1,7 @@
 const BASE_URL = "http://localhost:4000";
 const REGISTER = `${BASE_URL}/user/register`;
 const LOGIN = `${BASE_URL}/user/login`;
+const PROFILE_UPDATE = `${BASE_URL}/user/patch/`;
 
 const ASSOCIATIONS = `${BASE_URL}/associations`
 const ASSOCIATIONS_REGISTER = `${BASE_URL}/associations/register`
@@ -17,5 +18,6 @@ export {
     ASSOCIATIONS,
     ASSOCIATIONS_REGISTER,
     ASSOCIATIONS_LOGIN,
-    ASSOCIATIONS_LOGOUT
+    ASSOCIATIONS_LOGOUT,
+    PROFILE_UPDATE
 }
