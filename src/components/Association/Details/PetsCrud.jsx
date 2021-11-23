@@ -45,7 +45,7 @@ const PetsCrud = () => {
     {association.pets && association.pets.length > 0 ?
       <div className="petsCrudContent">
         <h2>Hola {association.name}</h2>
-        {association.pets && association.pets.length > 0 && association.pets.map((pet) => {
+        {association.pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
               <div className="petsCrudContent__card--img">

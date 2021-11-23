@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://adopta-una-mascota.herokuapp.com";
 const REGISTER = `${BASE_URL}/user/register`;
 const LOGIN = `${BASE_URL}/user/login`;
 const PROFILE_UPDATE = `${BASE_URL}/user/patch/`;
