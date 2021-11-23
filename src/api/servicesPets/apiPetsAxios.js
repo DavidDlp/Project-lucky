@@ -4,6 +4,7 @@ import { addToken } from "../../utils/jwt";
 
 
 
+
 const config = {
     headers: {
         "Accept": "application/json",
@@ -33,7 +34,25 @@ export const getPetsById = async (id) => {
 }
 
 //POST
-
+export const postPets = async (pet) => {
+    try {
+        config.headers.Authorization = addToken()
+        const req = await axios.post(PETS_URL, pet, config)
+        return req
+    } catch (error) {
+        return console.error(error)
+    }
+}
 //PUT
 
 //DELETE
+export const deletePets = async (pet) => {
+    try {
+        config.headers.Authorization = addToken()
+        const req = await axios.delete(PETS_URL,pet,config)
+        return req
+    } catch (error) {
+        return console.error(error)
+        
+    }
+}
