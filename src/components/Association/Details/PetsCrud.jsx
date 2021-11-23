@@ -12,9 +12,7 @@ const PetsCrud = () => {
   const getPetBD = async () => {
     try {
       const data = await getAssocionationById(association._id);
-      if(association.pets && association.pets.length > 0){
-        setAssociation(data);
-      }
+      setAssociation(data);
     } catch (error) {
       console.log(error);
     }

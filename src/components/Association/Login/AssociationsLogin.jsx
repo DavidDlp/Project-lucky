@@ -60,12 +60,12 @@ const AssociationLogin = () => {
   };
   
   return (
-    <div className="cont-Login">
+    <div className="cont-Login cont-Login-protectora">
       <div className="cont-logo">
         <img src={logo} alt="logo:Lucky" />
       </div>
       <div className="cont-header">
-        <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+        <p>Accede como protectora</p>
       </div>
       <form className="cont-form" onSubmit={handleSubmit(submit)}>
         <input
