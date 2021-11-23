@@ -20,3 +20,64 @@
     font-weight: 400;
     color:  $ocean;
   }
+
+
+.petsCrudContent{
+  h2{
+    text-align: center;
+    color: $blueDark;
+    margin-bottom: 2rem;
+  }
+  
+  &__card{
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 3px solid $redDark;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    padding: $paddingMain 0;
+
+    &--img{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width:80%;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 15px;
+    }
+
+    &--info{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: $marginMain;
+      p{
+        padding: $paddingMain - 1rem;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        span{
+          font-weight:700;
+        }
+      }
+    }
+
+    &--button button{
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: $light;
+      background-color: $redDark;
+      border:0;
+      border-radius: 15px;
+      padding: 0.5rem $paddingMain;
+    }
+  }
+}

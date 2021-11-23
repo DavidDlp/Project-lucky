@@ -16,7 +16,7 @@ export const getPets = async () => {
       headers: headers
   })
   const response = await request.json()
-  console.log("esto es", response)
+  // console.log("esto es", response)
   return response
 }
 
