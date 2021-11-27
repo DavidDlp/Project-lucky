@@ -18,6 +18,7 @@ import "swiper/components/pagination/pagination.scss";
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 import addFavPet from "../User/pets/addFavorite";
+import addAdoptedPet from "../User/pets/addAdopted";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
@@ -118,6 +119,7 @@ export default function Pets() {
               <div className="pets__response--item" key={JSON.stringify(item)}>
                 <div className="pets__response--item--img">
                 <button onClick={()=> addFavPet(userInLocal._id,item)}>Añadir a Favoritos</button>
+                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>
                   <Link to={{ pathname: "/pets/details/" + item._id }}>
                     <img src={item.imgPets} alt="pets" />
                     <div className="pets__response--item--content">

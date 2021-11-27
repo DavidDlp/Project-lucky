@@ -1,9 +1,11 @@
 /* const BASE_URL = "https://adopta-una-mascota.herokuapp.com"; */
-const BASE_URL = "http://localhost:4000"
+const BASE_URL = "http://localhost:4000";
+
 const REGISTER = `${BASE_URL}/user/register`;
 const LOGIN = `${BASE_URL}/user/login`;
 const PROFILE_UPDATE = `${BASE_URL}/user/patch/`;
 const FAVORITE_PET = `${BASE_URL}/user/newfavpet/`;
+const ADOPTED_PET = `${BASE_URL}/user/newadoptedpet/`;
 
 const ASSOCIATIONS = `${BASE_URL}/associations`
 const ASSOCIATIONS_REGISTER = `${BASE_URL}/associations/register`
@@ -22,5 +24,6 @@ export {
     ASSOCIATIONS_LOGIN,
     ASSOCIATIONS_LOGOUT,
     PROFILE_UPDATE,
-    FAVORITE_PET
+    FAVORITE_PET,
+    ADOPTED_PET
 }
