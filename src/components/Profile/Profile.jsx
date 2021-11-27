@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Logout from "../Login/Logout";
+import Logout from "../User/Login/Logout";
 import Navbar from "../Navbar/Navbar";
 
 export default function Profile() {

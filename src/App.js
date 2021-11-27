@@ -10,10 +10,10 @@ import PetsDetails from "./components/Pets/Details/Pets-details";
 import PetsCrud from "./components/Association/Details/PetsCrud";
 import PetsCreate from "./components/Association/Details/PetsCreate"
 
-import PreLogin from "./components/Login/PreLogin";
-import Login from "./components/Login/Login";
-import Logout from "./components/Login/Logout";
-import Register from "./components/Login/Register";
+import PreLogin from "./components/User/Login/PreLogin";
+import Login from "./components/User/Login/Login";
+import Logout from "./components/User/Login/Logout";
+import Register from "./components/User/Login/Register";
 
 import Association from "./components/Association/Association";
 import AssociationLogin from "./components/Association/Login/AssociationsLogin";
