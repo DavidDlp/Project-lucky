@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { registerUser } from "./../../api/servicesLogin/UserLogin/apiRegister";
+import { registerUser } from "./../../../api/servicesLogin/UserLogin/apiRegister";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import logoReg from "../../assets/img/logoRegister.png";
+import logoReg from "../../../assets/img/logoRegister.png";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 

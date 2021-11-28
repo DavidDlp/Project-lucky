@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 import { patchUserById } from "../../api/UserServices/UserPatch";
-import Logout from "../Login/Logout";
+import Logout from "../User/Login/Logout";
 
 export default function ModifyProfileDetail() {
     const { register, handleSubmit } = useForm();
