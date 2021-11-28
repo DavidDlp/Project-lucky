@@ -28,7 +28,6 @@ export default function Pets() {
   const [searchPet, setSchearchPet] = useState("");
   const [userInLocal, setUserInLocal] = useState({});
 
-
   //PETICIONES
   const getPetsApi = async () => {
     try {
@@ -71,8 +70,7 @@ export default function Pets() {
     });
     setPets(resultSearch);
   };
- 
-  
+
   useEffect(() => {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
     getPetsApi();
@@ -118,8 +116,13 @@ export default function Pets() {
             return (
               <div className="pets__response--item" key={JSON.stringify(item)}>
                 <div className="pets__response--item--img">
-                <button onClick={()=> addFavPet(userInLocal._id,item)}>Añadir a Favoritos</button>
-                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>
+                  <button onClick={() => addFavPet(userInLocal._id, item)}>
+                    Añadir a Favoritos
+                  </button>
+                  <button onClick={() => addAdoptedPet(userInLocal._id, item)}>
+                    Adoptar
+                  </button>
+
                   <Link to={{ pathname: "/pets/details/" + item._id }}>
                     <img src={item.imgPets} alt="pets" />
                     <div className="pets__response--item--content">
