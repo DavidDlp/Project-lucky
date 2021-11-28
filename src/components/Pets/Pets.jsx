@@ -126,10 +126,19 @@ export default function Pets() {
             return (
               <div className="pets__response--item" key={JSON.stringify(item)}>
                 <div className="pets__response--item--img">
-                <button onClick={()=> addFavPet(userInLocal._id,item)}><i class="far fa-heart"></i></button>
-                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>
+                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>                  
+                    <div className="pets__response--item--containerImg">
+                      <img src={item.imgPets} alt="pets" />
+                      <div className="pets__response--item--favorite">
+                      {!userInLocal.petsFavorite[item] ? (
+                          <i onClick={()=> addFavPet(userInLocal._id,userInLocal)} className="far fa-heart"></i>
+                        ) : (
+                            <i onClick={()=> addFavPet(userInLocal._id,userInLocal)} className="fas fa-heart"></i>
+                        )
+                      }
+                      </div>
+                    </div>
                   <Link to={{ pathname: "/pets/details/" + item._id }}>
-                    <img src={item.imgPets} alt="pets" />
                     <div className="pets__response--item--content">
                       <h3>{item.name}</h3>
                       <span>{item.city}</span>
