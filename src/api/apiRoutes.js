@@ -16,12 +16,14 @@ const ASSOCIATIONS_ADOPTION_ACCEPT = `${BASE_URL}/associations/adoptionaccept/`;
 const ASSOCIATIONS_ADOPTION_REJECT = `${BASE_URL}/associations/adoptionreject/`;
 
 const PETS_URL = `${BASE_URL}/pets`;
+const USER_URL = `${BASE_URL}/user`;
 
 export {
     BASE_URL,
     REGISTER,
     LOGIN,
     PETS_URL,
+    USER_URL,
     ASSOCIATIONS,
     ASSOCIATIONS_REGISTER,
     ASSOCIATIONS_LOGIN,

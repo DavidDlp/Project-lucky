@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PETS_URL } from '../apiRoutes';
+import { USER_URL } from '../apiRoutes';
 import { addToken } from "../../utils/jwt";
 
 
@@ -26,6 +27,16 @@ export const getPetsById = async (id) => {
     try{
         config.headers.Authorization = addToken()
         const req = await axios.get(PETS_URL +'/'+ id,config)
+        return req
+    }catch(error){
+        return console.error(error)
+    }
+}
+
+export const getUserById = async (id) => {
+    try{
+        config.headers.Authorization = addToken()
+        const req = await axios.get(USER_URL +'/'+ id,config)
         return req
     }catch(error){
         return console.error(error)
