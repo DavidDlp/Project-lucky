@@ -131,9 +131,9 @@ export default function Pets() {
                       <img src={item.imgPets} alt="pets" />
                       <div className="pets__response--item--favorite">
                       {!userInLocal.petsFavorite[item] ? (
-                          <i onClick={()=> addFavPet(userInLocal._id,userInLocal)} className="far fa-heart"></i>
+                          <i onClick={()=> addFavPet(userInLocal._id, item)} className="far fa-heart"></i>
                         ) : (
-                            <i onClick={()=> addFavPet(userInLocal._id,userInLocal)} className="fas fa-heart"></i>
+                            <i onClick={()=> addFavPet(userInLocal._id, item)} className="fas fa-heart"></i>
                         )
                       }
                       </div>
