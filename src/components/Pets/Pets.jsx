@@ -24,6 +24,7 @@ SwiperCore.use([Pagination]);
 
 export default function Pets() {
   const [pets, setPets] = useState([]);
+  // const [user, setUser] = useState([]);
   const [finallyPet, setFinallyPet] = useState([]);
   const [searchPet, setSchearchPet] = useState("");
   const [userInLocal, setUserInLocal] = useState({});
@@ -39,6 +40,14 @@ export default function Pets() {
       return console.error(error);
     }
   };
+
+  // const getUserInLocal = async () => {
+  //   try{
+  //     const result = await get
+  //   }catch (error) {
+  //     return console.error(error);
+  //   }
+  // }
 
   //FUNCIONALIDADES
   const handleChange = (e) => {
@@ -70,7 +79,7 @@ export default function Pets() {
     });
     setPets(resultSearch);
   };
-
+  
   useEffect(() => {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
     getPetsApi();
@@ -116,15 +125,19 @@ export default function Pets() {
             return (
               <div className="pets__response--item" key={JSON.stringify(item)}>
                 <div className="pets__response--item--img">
-                  <button onClick={() => addFavPet(userInLocal._id, item)}>
-                    Añadir a Favoritos
-                  </button>
-                  <button onClick={() => addAdoptedPet(userInLocal._id, item)}>
-                    Adoptar
-                  </button>
-
+                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>                  
+                    <div className="pets__response--item--containerImg">
+                      <img src={item.imgPets} alt="pets" />
+                      <div className="pets__response--item--favorite">
+                      {!userInLocal.petsFavorite[item] ? (
+                          <i onClick={()=> addFavPet(userInLocal._id, item)} className="far fa-heart"></i>
+                        ) : (
+                            <i onClick={()=> addFavPet(userInLocal._id, item)} className="fas fa-heart"></i>
+                        )
+                      }
+                      </div>
+                    </div>
                   <Link to={{ pathname: "/pets/details/" + item._id }}>
-                    <img src={item.imgPets} alt="pets" />
                     <div className="pets__response--item--content">
                       <h3>{item.name}</h3>
                       <span>{item.city}</span>
