@@ -7,12 +7,15 @@ const PROFILE_UPDATE = `${BASE_URL}/user/patch/`;
 const FAVORITE_PET = `${BASE_URL}/user/newfavpet/`;
 const ADOPTED_PET = `${BASE_URL}/user/newadoptedpet/`;
 
-const ASSOCIATIONS = `${BASE_URL}/associations`
-const ASSOCIATIONS_REGISTER = `${BASE_URL}/associations/register`
-const ASSOCIATIONS_LOGIN = `${BASE_URL}/associations/login`
-const ASSOCIATIONS_LOGOUT = `${BASE_URL}/associations/logout`
+const ASSOCIATIONS = `${BASE_URL}/associations`;
 
-const PETS_URL = `${BASE_URL}/pets`
+const ASSOCIATIONS_REGISTER = `${BASE_URL}/associations/register`;
+const ASSOCIATIONS_LOGIN = `${BASE_URL}/associations/login`;
+const ASSOCIATIONS_LOGOUT = `${BASE_URL}/associations/logout`;
+const ASSOCIATIONS_ADOPTION_ACCEPT = `${BASE_URL}/associations/adoptionaccept/`;
+const ASSOCIATIONS_ADOPTION_REJECT = `${BASE_URL}/associations/adoptionreject/`;
+
+const PETS_URL = `${BASE_URL}/pets`;
 
 export {
     BASE_URL,
@@ -25,5 +28,7 @@ export {
     ASSOCIATIONS_LOGOUT,
     PROFILE_UPDATE,
     FAVORITE_PET,
-    ADOPTED_PET
+    ADOPTED_PET,
+    ASSOCIATIONS_ADOPTION_ACCEPT,
+    ASSOCIATIONS_ADOPTION_REJECT
 }

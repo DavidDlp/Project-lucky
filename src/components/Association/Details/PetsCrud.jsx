@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getAssocionationById } from "../../../api/servicesAssociation/apiAssociation";
 import { deletePets } from "../../../api/servicesPets/apiPetsFetch";
 import Loading from "../../../components/Loading/Loading";
+import { adoptionAccept, adoptionReject } from "../adoptionStatus";
+
 
 const PetsCrud = () => {
   const [association, setAssociation] = useState({});
@@ -45,7 +47,7 @@ const PetsCrud = () => {
     {association.pets && association.pets.length > 0 ?
       <div className="petsCrudContent">
         <h2>Hola {association.name}</h2>
-        {association.pets.map((pet) => {
+        {association.pets && association.pets.length > 0 && association.pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
               <div className="petsCrudContent__card--img">
@@ -65,10 +67,12 @@ const PetsCrud = () => {
               </div>
               <div className="petsCrudContent__card--button">
                 <button onClick={() => delPets(pet._id)}>Borrar</button>
+                <button onClick={()=> adoptionAccept(association._id,pet)}>Aceptar</button>
+                <button onClick={()=> adoptionReject(association._id,pet)}>Rechazar</button>
               </div>
             </div>
           );
-        }
+        } 
         )
       }
         
