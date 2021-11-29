@@ -1,239 +1,243 @@
-.detailPet{    
+.detailPet {
+  position: relative;
+  a {
+    .back--button {
+      font-size: 2rem;
+      color: $redDark;
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 2;
+    }
+  }
+
+  img {
+    width: 101%;
+    margin-left: -1%;
+    height: auto;
+    z-index: 1;
+  }
+  .detailPet__sliderImg {
+    width: 100vw;
+    .swiper-container {
+      .swiper-pagination {
+        .swiper-pagination-bullet {
+          background-color: #fff;
+          border: 1px solid $redDark;
+          margin: 0 4px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+          background-color: $redLight;
+          border: 1px solid $redLight;
+        }
+      }
+    }
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-container-horizontal
+      > .swiper-pagination-bullets {
+      bottom: 2.4rem;
+    }
+
+    // .swiper-slide{
+    //     // img{
+    //     //     width: 102vw;
+    //     //     height: auto;
+    //     //     margin-left: -0.4rem;
+    //     //     z-index: 1;
+    //     // }
+    // }
+  }
+
+  .detailPet__resume {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: #fff;
+    width: 225px;
+    margin: 0 auto;
+    margin-top: -2rem;
+    z-index: 1;
     position: relative;
-    a{
-        .back--button{
-            font-size: 2rem;
-            color: $redDark;
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            z-index: 2;
-        }
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.7);
+
+    .detail__resume--genre {
+      flex: 0.2;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 100%;
+      padding-top: 1.8rem;
+      img {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .detail__resume--data {
+      font-size: 12px;
+      flex: 0.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 400;
+      color: $blueDark;
+
+      p {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+      }
+
+      .detail__resume--data--name {
+        font-size: 16px;
+
+        margin-block-start: 0em;
+        margin-block-end: 0.2em;
+        font-weight: 600;
+      }
+    }
+    .detail__resume--button {
+      flex: 0.2;
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  .detailPet__Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+
+    a {
+      font-size: 16px;
+      font-family: $fontMain;
+      font-weight: 400;
+      color: $dark;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 0.5rem;
     }
 
-                img{
-                width: 101%;
-                margin-left: -1%;
-                height: auto;
-                z-index: 1; 
-            }
-    .detailPet__sliderImg{
-        width: 100vw;
-        .swiper-container{    
-            .swiper-pagination{        
-                .swiper-pagination-bullet{
-                    background-color: #FFF;
-                    border: 1px solid $redDark;
-                    margin: 0 4px!important;
-                }
-            
-                .swiper-pagination-bullet-active{
-                    background-color: $redLight;
-                    border: 1px solid $redLight;
-                }
-            }
-        }
+    .active {
+      color: $ocean;
+      font-weight: 600;
+      border-bottom: 3px solid $redLight;
+    }
+  }
 
-        .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
-            bottom: 2.4rem;
-        }
+  .detailPet__Data,
+  .detailPet__Health {
+    padding: 0 1rem;
 
-        // .swiper-slide{
-        //     // img{
-        //     //     width: 102vw;
-        //     //     height: auto;
-        //     //     margin-left: -0.4rem;
-        //     //     z-index: 1; 
-        //     // }
-        // }
+    p {
+      margin-block-start: 0.6em;
+      margin-block-end: 0.6em;
     }
 
-    .detailPet__resume{
+    &--attribute {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .attribute__icon {
+        flex: 0.1;
+        margin: auto;
+
+        img {
+          width: 20px;
+          height: 18px;
+          padding-top: 0.2rem;
+        }
+      }
+
+      .attribute__data {
+        flex: 0.6;
+      }
+
+      .attribute__res {
+        flex: 0.3;
+        text-align: right;
+      }
+    }
+    &--attribute:first-child {
+      margin-top: 1rem;
+    }
+
+    &--personality {
+      margin-top: 1.8rem;
+      margin-bottom: 1.6rem;
+      h3 {
+        font-size: 16px;
+        color: $ocean;
+      }
+
+      .personality__tags {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        height: 60px;
-        background-color: #FFF;
-        width: 225px;
-        margin: 0 auto;
-        margin-top: -2rem;
-        z-index: 1;
-        position: relative;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        p {
+          padding: 0.55em 1.2em 0.5em;
+          background-color: $blueDark;
+          color: $light;
+          font-size: 12px;
+          border-radius: 10px;
+          margin-right: 0.5rem;
+          font-weight: 500;
+        }
+      }
+    }
+    &--history {
+      padding: 0.5em 0.4em 0em;
+      border: 1px solid $blueLight;
+      border-radius: 4px;
+      h3 {
+        font-size: 16px;
+        color: $ocean;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+      }
+
+      .history__info {
+        p {
+          color: $dark;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    &--button {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        padding: 0.6em 2.2em;
+        color: $light;
+        background-color: $redDark;
         border-radius: 4px;
-        -webkit-box-shadow: 1px 1px 20px -5px rgba(0,0,0,0.7); 
-        box-shadow: 1px 1px 20px -5px rgba(0,0,0,0.7);
-
-        .detail__resume--genre{
-            flex: 0.2;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            height: 100%;
-            padding-top: 1.8rem;
-            img{
-                width: 14px;
-                height: 14px;
-            }
-        }
-        .detail__resume--data{
-            font-size: 12px;
-            flex: 0.6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            text-transform: capitalize;
-            font-weight: 400;
-            color: $blueDark;
-
-            p{
-                margin-block-start: 0em;
-                margin-block-end: 0em;
-            }            
-
-            .detail__resume--data--name{
-                font-size: 16px;
-                
-                margin-block-start: 0em;
-                margin-block-end: 0.2em;
-                font-weight: 600;
-            }
-
-        }
-        .detail__resume--button{
-            flex: 0.2;
-            img{
-                width: 22px;
-                height: 22px;
-            }
-        }
+      }
     }
+  }
 
-    .detailPet__Navbar{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin-top: 1.5rem;
-        
-        a{
-            font-size: 16px;
-            font-family: $fontMain;
-            font-weight: 400;
-            color: $dark;
-            text-decoration: none;
-            width: 100%;
-            text-align: center;
-            padding-bottom: 0.5rem;
-        }
-        
-        .active{
-            color: $ocean;
-            font-weight: 600;
-            border-bottom: 3px solid $redLight;
-        }
-    }
-
-    .detailPet__Data, .detailPet__Health{
-        padding: 0 1rem;
-
-        p{
-            margin-block-start: 0.6em;
-            margin-block-end: 0.6em;
-        }
-
-        &--attribute{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            .attribute__icon{
-                flex: 0.1;
-                margin: auto;
-
-                img{
-                    width: 20px;
-                    height: 18px;
-                    padding-top: 0.2rem;
-                }
-            }
-
-            .attribute__data{
-                flex: 0.6;
-
-            }
-
-            .attribute__res{
-                flex: 0.3;
-                text-align: right;
-
-            }
-        }
-        &--attribute:first-child{
-            margin-top: 1rem;
-        }
-
-        &--personality{
-
-            margin-top: 1.8rem;
-            margin-bottom: 1.6rem;
-            h3{
-                font-size:16px;
-                color: $ocean;
-            }
-
-            .personality__tags{
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-
-                p{
-                    padding: 0.55em 1.2em 0.50em;
-                    background-color: $blueDark;
-                    color: $light;
-                    font-size: 12px;
-                    border-radius: 10px;
-                    margin-right: 0.5rem;
-                    font-weight: 500;
-                }
-            }
-        }
-        &--history{
-            padding: 0.5em 0.4em 0em;
-            border: 1px solid $blueLight;
-            border-radius: 4px;
-            h3{
-                font-size:16px;
-                color: $ocean;
-                margin-block-start: 0em;
-                margin-block-end: 0em;
-            }
-
-            .history__info{
-                p{
-                    color: $dark;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-            }
-        }
-
-        &--button{
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            
-            a{
-                text-decoration: none;
-                padding: 0.6em 2.2em;
-                color: $light;
-                background-color: $redDark;
-                border-radius: 4px;
-            }
-        }
-    }
-
+  .buttonAdopted{
+    margin: -1rem auto 1rem;
+    text-align: center;
+  }
 }

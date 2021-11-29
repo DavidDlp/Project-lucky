@@ -6,6 +6,7 @@ import { useParams, Link  } from 'react-router-dom';
 // import SwiperCore, { EffectFade, Pagination } from 'swiper';
 
 import { getPetsById } from "../../../api/servicesPets/apiPetsAxios";
+import addAdoptedPet from '../../User/pets/addAdopted';
 import PetData from './Data';
 import PetHealth from './Health';
 
@@ -19,6 +20,7 @@ const PetsDetails = () => {
     const [showData, setShowData] = useState(true);
     const [pet, setPet] = useState({});
     const { id }  = useParams();
+    const [userInLocal, setUserInLocal] = useState({});
 
     
     const getPets = async () => {
@@ -28,6 +30,7 @@ const PetsDetails = () => {
     }
 
     useEffect(() => {
+        setUserInLocal(JSON.parse(localStorage.getItem("user")));
         getPets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -83,8 +86,8 @@ const PetsDetails = () => {
                 <PetHealth pet={pet} />
             )}
 
-            <div className="detailPet__Data--button">
-                {/* <a href="#">Adoptar</a> */}
+            <div className="detailPet__Data--button petsCrudContent__card--button">
+                <button onClick={()=> addAdoptedPet(userInLocal._id,pet)}>Adoptar</button>
             </div>
         </div>
     )
