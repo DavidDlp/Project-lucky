@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PETS_URL } from '../apiRoutes';
+import { PETS_ADD, PETS_URL } from '../apiRoutes';
 import { addToken } from "../../utils/jwt";
 
 
@@ -33,7 +33,16 @@ export const getPetsById = async (id) => {
 }
 
 //POST
-
+export const registerPet = async (pet, id ) =>{
+    console.log(pet, id)
+    try{
+        const req = await axios.post(PETS_ADD, pet, id , config);
+        console.log("propiedades pets ->", req);
+        return req.data;
+    }catch(error){
+        console.error(error)
+    }
+}
 //PUT
 
 //DELETE

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { getAssocionationById } from "../../../api/servicesAssociation/apiAssociation";
 import { deletePets } from "../../../api/servicesPets/apiPetsFetch";
 import Loading from "../../../components/Loading/Loading";
@@ -10,6 +11,7 @@ const PetsCrud = () => {
   const [pets, setPets] = useState([]);
   const [flag, setFlag] = useState(false);
   let [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const getPetBD = async () => {
     try {
@@ -42,6 +44,7 @@ const PetsCrud = () => {
   return(
     <>
     {loading}
+    <button onClick={() => navigate("/petcreate")}>Crear</button>
     {association.pets && association.pets.length > 0 ?
       <div className="petsCrudContent">
         <h2>Hola {association.name}</h2>
@@ -67,6 +70,7 @@ const PetsCrud = () => {
                 <button onClick={() => delPets(pet._id)}>Borrar</button>
                 <button onClick={()=> adoptionAccept(association._id,pet)}>Aceptar</button>
                 <button onClick={()=> adoptionReject(association._id,pet)}>Rechazar</button>
+                
               </div>
             </div>
           );

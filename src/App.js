@@ -8,7 +8,7 @@ import Onboarding from "./components/Onboarding/Onboarding";
 import Pets from "./components/Pets/Pets";
 import PetsDetails from "./components/Pets/Details/Pets-details";
 import PetsCrud from "./components/Association/Details/PetsCrud";
-import PetsCreate from "./components/Association/Details/PetsCreate"
+// import PetsCreate from "./components/Association/Details/PetsCreate"
 
 import PreLogin from "./components/User/Login/PreLogin";
 import Login from "./components/User/Login/Login";
@@ -22,6 +22,7 @@ import "./styles/app.scss";
 import AssociationRegister from "./components/Association/Login/AssociationsRegister";
 import AssociationLogout from "./components/Association/Login/AssociationsLogout";
 import ModifyProfileDetail from "./components/Profile/ModifyProfileDetail";
+import PetCreate from "./components/Association/Details/PetCreate";
 
 
 
@@ -62,7 +63,7 @@ function App() {
             <Route path="/associations/logout" element={<AssociationLogout />} />
             <Route path="/associationscreate" element={<AssociationCreate />} />
             <Route path="/petscrud" element={<PetsCrud/>} />
-            <Route path="/petscreate" element={<PetsCreate />} />
+            <Route path="/petcreate" element={<PetCreate />} />
           </Routes>
         </BrowserRouter>
         }

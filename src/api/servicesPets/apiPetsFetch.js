@@ -1,6 +1,6 @@
 
 import { addToken } from "../../utils/jwt";
-import { PETS_URL } from "../apiRoutes";
+import { PETS_ADD, PETS_URL } from "../apiRoutes";
 
 const headers = {
   "Accept": "application/json",
@@ -22,7 +22,7 @@ export const getPets = async () => {
 
 export const postPets = async (pets) =>{
   try{
-      const req = await fetch(PETS_URL,{
+      const req = await fetch(PETS_ADD,{
           method:'POST',
           headers:headers,
           body: JSON.stringify(pets)
