@@ -17,8 +17,8 @@ import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
-import addFavPet, { eraseFavPet } from "../User/pets/addFavorite";
-import addAdoptedPet from "../User/pets/addAdopted";
+import addFavPet from "../User/pets/addFavorite";
+// import addAdoptedPet from "../User/pets/addAdopted";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
@@ -46,6 +46,7 @@ export default function Pets() {
     try {
       const userByID = await getUserById(userInLocal._id);
       setUser(userByID.data);
+      console.log(userByID.data);
     } catch (error) {
       return console.error(error);
     }
@@ -131,7 +132,7 @@ export default function Pets() {
                       {user.petsFavorite && !user.petsFavorite[user.petsFavorite.indexOf(item._id)] ? (
                           <i onClick={()=> addFavPet(user._id, item)} className="far fa-heart"></i>
                         ) : (
-                          <i onClick={()=> eraseFavPet(user._id, item)} className="fas fa-heart"></i>
+                          <i className="fas fa-heart"></i>
                         )
                       }
                       </div>

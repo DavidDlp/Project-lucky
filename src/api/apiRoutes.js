@@ -5,6 +5,7 @@ const REGISTER = `${BASE_URL}/user/register`;
 const LOGIN = `${BASE_URL}/user/login`;
 const PROFILE_UPDATE = `${BASE_URL}/user/patch/`;
 const FAVORITE_PET = `${BASE_URL}/user/newfavpet/`;
+const UNFAVORITE_PET = `${BASE_URL}/user/unfavpet/`;
 const ADOPTED_PET = `${BASE_URL}/user/newadoptedpet/`;
 
 const ASSOCIATIONS = `${BASE_URL}/associations`;
@@ -32,5 +33,6 @@ export {
     FAVORITE_PET,
     ADOPTED_PET,
     ASSOCIATIONS_ADOPTION_ACCEPT,
-    ASSOCIATIONS_ADOPTION_REJECT
+    ASSOCIATIONS_ADOPTION_REJECT,
+    UNFAVORITE_PET
 }
