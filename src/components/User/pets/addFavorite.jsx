@@ -1,4 +1,4 @@
-import { patchFavPetById } from './../../../api/UserServices/UserPatch'
+import { deleteFavPetById, patchFavPetById } from './../../../api/UserServices/UserPatch'
 
 export default async function addFavPet(id,data){
 //console.log(id)
@@ -12,11 +12,11 @@ export default async function addFavPet(id,data){
   };
 
 export async function eraseFavPet(id,data){
-//console.log(id)
-//console.log(data)
+// console.log(id)
+// console.log(data)
     try {
-      await patchFavPetById(id,"");
-      console.log("user",id,"favorite pet -->",data)
+      await deleteFavPetById(id, data);
+      console.log("user",id,"favorite pet --> ", data)
     } catch (error) {
       return console.log(error);
     }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllPets } from "../../api/servicesPets/apiPetsAxios";
+import { getAllPets, getUserById } from "../../api/servicesPets/apiPetsAxios";
 //IMAGES
 // import arrow from './../../assets/img/arrow.png';
 import search from "./../../assets/img/buscar.png";
@@ -18,15 +18,16 @@ import "swiper/components/pagination/pagination.scss";
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 import addFavPet from "../User/pets/addFavorite";
-import addAdoptedPet from "../User/pets/addAdopted";
+// import addAdoptedPet from "../User/pets/addAdopted";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
 export default function Pets() {
   const [pets, setPets] = useState([]);
-  // const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
+  const [flag, setFlag] = useState(false);
   const [finallyPet, setFinallyPet] = useState([]);
-  const [searchPet, setSchearchPet] = useState("");
+  const [searchPet, setSearchPet] = useState("");
   const [userInLocal, setUserInLocal] = useState({});
 
   //PETICIONES
@@ -36,6 +37,16 @@ export default function Pets() {
       setPets(result.data);
       setFinallyPet(result.data);
       // console.log(result.data);
+    } catch (error) {
+      return console.error(error);
+    }
+  };
+
+  const getUsersApi = async () => {
+    try {
+      const userByID = await getUserById(userInLocal._id);
+      setUser(userByID.data);
+      console.log(userByID.data);
     } catch (error) {
       return console.error(error);
     }
@@ -52,7 +63,7 @@ export default function Pets() {
   //FUNCIONALIDADES
   const handleChange = (e) => {
     // console.log("Busqueda: " +e.target.value);
-    setSchearchPet(e.target.value);
+    setSearchPet(e.target.value);
     // console.log("search: " + searchPet)
     filterSearch(e.target.value);
   };
@@ -83,13 +94,17 @@ export default function Pets() {
   useEffect(() => {
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
     getPetsApi();
-  }, []);
+    getUsersApi();
+    setFlag(true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flag]);
 
-  // console.log(pets);
-
+  // console.log(user);
+  
   return (
     <>
-      <Navbar />
+    <Navbar />
+    {pets && pets.length > 0 ?
       <div className="pets">
         <div className="pets__search">
           <input
@@ -101,20 +116,6 @@ export default function Pets() {
           />
           <img src={search} alt="search" />
         </div>
-        {/* <div className= "favorite-pets" >
-                <h3>Mis mascotas <img src={add} alt="add"/></h3>
-                <p>Accede al perfil de tus mascotas</p>
-                <div className= "separation">
-                    <Swiper slidesPerView={3} spaceBetween={20} pagination={true} className="mySwiper">
-                        <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide>
-                    </Swiper>
-                </div>
-            </div> */}
-
-        {/* <div className="container-btn">
-                <span>Estado de adopcion</span>
-                <img src={arrow} alt="flecha"/>
-            </div> */}
         <div className="pets__separation" />
         <div className="pets__filter">
           <h3>Animales en adopcion</h3>
@@ -125,14 +126,13 @@ export default function Pets() {
             return (
               <div className="pets__response--item" key={JSON.stringify(item)}>
                 <div className="pets__response--item--img">
-                <button onClick={()=> addAdoptedPet(userInLocal._id,item)}>Adoptar</button>                  
                     <div className="pets__response--item--containerImg">
                       <img src={item.imgPets} alt="pets" />
                       <div className="pets__response--item--favorite">
-                      {!userInLocal.petsFavorite[item] ? (
-                          <i onClick={()=> addFavPet(userInLocal._id, item)} className="far fa-heart"></i>
+                      {user.petsFavorite && !user.petsFavorite[user.petsFavorite.indexOf(item._id)] ? (
+                          <i onClick={()=> addFavPet(user._id, item)} className="far fa-heart"></i>
                         ) : (
-                            <i onClick={()=> addFavPet(userInLocal._id, item)} className="fas fa-heart"></i>
+                          <i className="fas fa-heart"></i>
                         )
                       }
                       </div>
@@ -149,6 +149,10 @@ export default function Pets() {
           })}
         </div>
       </div>
+      : null 
+      }
     </>
   );
+
+
 }
