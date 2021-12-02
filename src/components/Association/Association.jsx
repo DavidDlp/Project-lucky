@@ -3,6 +3,7 @@ import { getAssociations, deleteAssociations } from "../../api/servicesAssociati
 
 const Association = () => {
   const [associations, setAssociatios] = useState([]);
+  const [flag, setFlag] = useState(false);
 
   const getAssociationBD = async () => {
     try {
@@ -23,14 +24,15 @@ const Association = () => {
 
   useEffect(() => {
     getAssociationBD();
-  }, []);
+    setFlag(true);
+  }, [flag]);
 
   return (
     <>
-         <h1>Asociaciones</h1>                
+      <h1>Asociaciones</h1>                
       <div className="content">
             
-        {associations.map((associations) => {
+        {associations && associations.map((associations) => {
           return (
             <div key={JSON.stringify(associations)}>
                             <p>Nombre: {associations.name}</p>                 
