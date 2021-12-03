@@ -15,7 +15,7 @@ import Login from "./components/User/Login/Login";
 import Logout from "./components/User/Login/Logout";
 import Register from "./components/User/Login/Register";
 
-import Association from "./components/Association/Association";
+// import Association from "./components/Association/Association";
 import AssociationLogin from "./components/Association/Login/AssociationsLogin";
 import AssociationCreate from "./components/Association/Create/AssociationCreate";
 import "./styles/app.scss";
@@ -57,7 +57,7 @@ function App() {
             <Route path="/user/logout" element={<Logout />} />
             <Route path="/user/patch/:id" element={<ModifyProfileDetail />} />
 
-            <Route path="/associations" element={<Association />} />
+            {/* <Route path="/associations" element={<Association />} /> */}
             <Route path="/associations/login" element={<AssociationLogin />} />
             <Route path="/associations/register" element={<AssociationRegister />} />
             <Route path="/associations/logout" element={<AssociationLogout />} />

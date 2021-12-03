@@ -18,6 +18,7 @@ import "swiper/components/pagination/pagination.scss";
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 import addFavPet from "../User/pets/addFavorite";
+import Loading from "../Loading/Loading";
 // import addAdoptedPet from "../User/pets/addAdopted";
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -26,6 +27,7 @@ export default function Pets() {
   const [pets, setPets] = useState([]);
   const [user, setUser] = useState({});
   const [flag, setFlag] = useState(false);
+  let [isLoading, setIsLoading] = useState(false);
   const [finallyPet, setFinallyPet] = useState([]);
   const [searchPet, setSearchPet] = useState("");
   const [userInLocal, setUserInLocal] = useState({});
@@ -92,17 +94,28 @@ export default function Pets() {
   };
   
   useEffect(() => {
+    setIsLoading(true);//mostramos loading
     setUserInLocal(JSON.parse(localStorage.getItem("user")));
-    getPetsApi();
-    getUsersApi();
+    getPetsApi().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
+    if (userInLocal._id) {
+      getUsersApi();
+    }
     setFlag(true);
+
+    // console.log(userInLocal);
+    return () => {
+      setFlag(false);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
+
+  const loading = (isLoading) ? <><Loading /></> : null;
 
   // console.log(user);
   
   return (
     <>
+    {loading}
     <Navbar />
     {pets && pets.length > 0 ?
       <div className="pets">
@@ -129,6 +142,12 @@ export default function Pets() {
                     <div className="pets__response--item--containerImg">
                       <img src={item.imgPets} alt="pets" />
                       <div className="pets__response--item--favorite">
+                      {/* {user.petsFavorite && !user.petsFavorite[user.petsFavorite.indexOf(item._id)] ? (
+                          <i onClick={()=> addFavPet(user._id, item)} className="far fa-heart"></i>
+                        ) : (
+                          <i className="fas fa-heart"></i>
+                        )
+                      } */}
                       {user.petsFavorite && !user.petsFavorite[user.petsFavorite.indexOf(item._id)] ? (
                           <i onClick={()=> addFavPet(user._id, item)} className="far fa-heart"></i>
                         ) : (

@@ -36,6 +36,9 @@ const PetsCrud = () => {
     setIsLoading(true);//mostramos loading
     getPetBD().then(() => setIsLoading(true)).finally(() => setIsLoading(false));
     setFlag(true);
+    return () => {
+      setFlag(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
@@ -45,10 +48,10 @@ const PetsCrud = () => {
     <>
     {loading}
     <button onClick={() => navigate("/petcreate")}>Crear</button>
-    {association.pets && association.pets.length > 0 ?
+    {association.pets ?
       <div className="petsCrudContent">
         <h2>Hola {association.name}</h2>
-        {association.pets && association.pets.length > 0 && association.pets.map((pet) => {
+        {association.pets.map((pet) => {
           return (
             <div className="petsCrudContent__card" key={JSON.stringify(pet)}>
               <div className="petsCrudContent__card--img">
