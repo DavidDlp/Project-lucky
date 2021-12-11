@@ -7,7 +7,7 @@ import { adoptionAccept, adoptionReject } from "../adoptionStatus";
 
 
 const PetsCrud = () => {
-  const [association, setAssociation] = useState({});
+  const [association, setAssociation] = useState([]);
   const [pets, setPets] = useState([]);
   const [flag, setFlag] = useState(false);
   let [isLoading, setIsLoading] = useState(false);
@@ -47,9 +47,10 @@ const PetsCrud = () => {
   return(
     <>
     {loading}
-    <button onClick={() => navigate("/petcreate")}>Crear</button>
     {association.pets ?
+      
       <div className="petsCrudContent">
+        <button onClick={() => navigate("/petcreate")}>Crear</button>
         <h2>Hola {association.name}</h2>
         {association.pets.map((pet) => {
           return (
